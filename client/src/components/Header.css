@@ -44,6 +44,8 @@
   text-decoration: none;
   color: var(--text-dark);
   font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
   transition: color 0.3s ease;
   position: relative;
 }
@@ -153,7 +155,8 @@
   }
   
   .nav-link {
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
+    font-size: 1.05rem;
     border-bottom: 1px solid var(--bg-light);
   }
   

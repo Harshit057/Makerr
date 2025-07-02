@@ -18,9 +18,210 @@ const Services = () => {
 
   const fetchServices = async () => {
     try {
-      const response = await fetch('/api/services');
-      const data = await response.json();
-      setServices(data.services);
+      // For now, we'll use static data. You can replace this with actual API call later
+      const staticServices = [
+        // Design Services
+        {
+          id: 1,
+          title: "Logo Design",
+          category: "design",
+          description: "Professional logo design that represents your brand identity and values.",
+          features: ["Custom logo concepts", "Vector files", "Brand guidelines", "Multiple revisions"],
+          icon: "palette"
+        },
+        {
+          id: 2,
+          title: "Poster Design",
+          category: "design",
+          description: "Eye-catching poster designs for events, promotions, and marketing campaigns.",
+          features: ["Print-ready designs", "High-resolution files", "Creative concepts", "Fast turnaround"],
+          icon: "image"
+        },
+        {
+          id: 3,
+          title: "Thumbnail Design",
+          category: "design",
+          description: "Compelling thumbnails for YouTube videos, social media, and digital content.",
+          features: ["Click-worthy designs", "A/B testing variants", "Platform optimization", "Brand consistency"],
+          icon: "photo"
+        },
+        {
+          id: 4,
+          title: "Video Editing",
+          category: "design",
+          description: "Professional video editing services for marketing, training, and entertainment.",
+          features: ["Professional editing", "Color correction", "Audio enhancement", "Motion graphics"],
+          icon: "videocam"
+        },
+        {
+          id: 5,
+          title: "UI/UX Design",
+          category: "design",
+          description: "User-centered design for websites and mobile applications.",
+          features: ["User research", "Wireframing", "Prototyping", "Design systems"],
+          icon: "design_services"
+        },
+        {
+          id: 6,
+          title: "Brand Identity",
+          category: "design",
+          description: "Complete brand identity packages including logos, colors, and guidelines.",
+          features: ["Logo design", "Color palette", "Typography", "Brand guidelines"],
+          icon: "brush"
+        },
+
+        // Development Services
+        {
+          id: 7,
+          title: "Web Development",
+          category: "development",
+          description: "Custom websites and web applications built with modern technologies.",
+          features: ["Responsive design", "SEO optimization", "Performance optimization", "Content management"],
+          icon: "web"
+        },
+        {
+          id: 8,
+          title: "Mobile App Development",
+          category: "development",
+          description: "Native and cross-platform mobile applications for iOS and Android.",
+          features: ["Native performance", "Cross-platform compatibility", "App store optimization", "Backend integration"],
+          icon: "phone_android"
+        },
+        {
+          id: 9,
+          title: "AI Assistants",
+          category: "development",
+          description: "Custom AI chatbots and virtual assistants for customer service and automation.",
+          features: ["Natural language processing", "Machine learning", "Integration APIs", "Custom training"],
+          icon: "smart_toy"
+        },
+        {
+          id: 10,
+          title: "Software Development",
+          category: "development",
+          description: "Custom software solutions for business process automation and productivity.",
+          features: ["Custom solutions", "Database design", "API development", "System integration"],
+          icon: "computer"
+        },
+        {
+          id: 11,
+          title: "E-commerce Solutions",
+          category: "development",
+          description: "Complete e-commerce platforms with payment integration and inventory management.",
+          features: ["Payment gateway", "Inventory management", "Order tracking", "Customer portal"],
+          icon: "shopping_cart"
+        },
+        {
+          id: 12,
+          title: "API Development",
+          category: "development",
+          description: "RESTful APIs and microservices for seamless system integration.",
+          features: ["RESTful architecture", "Documentation", "Authentication", "Rate limiting"],
+          icon: "api"
+        },
+
+        // Security Services
+        {
+          id: 13,
+          title: "Cybersecurity Audit",
+          category: "security",
+          description: "Comprehensive security assessments to identify vulnerabilities and risks.",
+          features: ["Vulnerability scanning", "Risk assessment", "Security recommendations", "Compliance check"],
+          icon: "security"
+        },
+        {
+          id: 14,
+          title: "Firewall Configuration",
+          category: "security",
+          description: "Professional firewall setup and management for network protection.",
+          features: ["Network security", "Traffic monitoring", "Intrusion detection", "24/7 monitoring"],
+          icon: "shield"
+        },
+        {
+          id: 15,
+          title: "Penetration Testing",
+          category: "security",
+          description: "Ethical hacking services to test your system's security defenses.",
+          features: ["Security testing", "Vulnerability reports", "Remediation guidance", "Compliance support"],
+          icon: "bug_report"
+        },
+        {
+          id: 16,
+          title: "Data Encryption",
+          category: "security",
+          description: "Advanced encryption solutions to protect sensitive data and communications.",
+          features: ["End-to-end encryption", "Data protection", "Secure transmission", "Key management"],
+          icon: "lock"
+        },
+        {
+          id: 17,
+          title: "Security Training",
+          category: "security",
+          description: "Employee security awareness training and best practices education.",
+          features: ["Security awareness", "Phishing simulation", "Best practices", "Compliance training"],
+          icon: "school"
+        },
+
+        // Marketing Services
+        {
+          id: 18,
+          title: "Digital Marketing Strategy",
+          category: "marketing",
+          description: "Comprehensive digital marketing strategies to grow your online presence.",
+          features: ["Strategy development", "Market analysis", "Competitor research", "ROI tracking"],
+          icon: "trending_up"
+        },
+        {
+          id: 19,
+          title: "Social Media Marketing",
+          category: "marketing",
+          description: "Engaging social media campaigns across all major platforms.",
+          features: ["Content creation", "Community management", "Paid advertising", "Analytics reporting"],
+          icon: "share"
+        },
+        {
+          id: 20,
+          title: "Search Engine Optimization",
+          category: "marketing",
+          description: "Improve your website's visibility and ranking in search engine results.",
+          features: ["Keyword research", "On-page optimization", "Link building", "Technical SEO"],
+          icon: "search"
+        },
+        {
+          id: 21,
+          title: "Content Marketing",
+          category: "marketing",
+          description: "Strategic content creation to attract and engage your target audience.",
+          features: ["Content strategy", "Blog writing", "Video content", "Content calendar"],
+          icon: "article"
+        },
+        {
+          id: 22,
+          title: "Email Marketing",
+          category: "marketing",
+          description: "Targeted email campaigns to nurture leads and retain customers.",
+          features: ["Campaign design", "List segmentation", "Automation", "Performance tracking"],
+          icon: "email"
+        },
+        {
+          id: 23,
+          title: "Pay-Per-Click Advertising",
+          category: "marketing",
+          description: "Targeted PPC campaigns on Google Ads, Facebook, and other platforms.",
+          features: ["Campaign setup", "Keyword bidding", "Ad optimization", "Conversion tracking"],
+          icon: "ads_click"
+        },
+        {
+          id: 24,
+          title: "Influencer Marketing",
+          category: "marketing",
+          description: "Connect with influencers to expand your reach and build brand awareness.",
+          features: ["Influencer research", "Campaign management", "Content collaboration", "Performance metrics"],
+          icon: "person_add"
+        }
+      ];
+
+      setServices(staticServices);
       setLoading(false);
     } catch (error) {
       console.error('Error fetching services:', error);

@@ -299,6 +299,141 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <section className="testimonials section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">What Our Clients Say</h2>
+            <p className="section-subtitle">
+              Don't just take our word for it - hear from our satisfied clients
+            </p>
+          </div>
+          
+          <div className="testimonials-grid">
+            <div className="testimonial-card">
+              <div className="testimonial-content">
+                <div className="quote-icon">"</div>
+                <p>"Makerr transformed our business with their innovative solutions. Their team was professional, responsive, and delivered exactly what we needed on time and within budget."</p>
+              </div>
+              <div className="testimonial-author">
+                <div className="author-info">
+                  <h4>Sarah Johnson</h4>
+                  <span>CEO, TechStart Inc.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="testimonial-card">
+              <div className="testimonial-content">
+                <div className="quote-icon">"</div>
+                <p>"The level of expertise and attention to detail was outstanding. They not only built our application but also provided valuable insights that improved our business processes."</p>
+              </div>
+              <div className="testimonial-author">
+                <div className="author-info">
+                  <h4>Michael Chen</h4>
+                  <span>CTO, InnovateNow</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="testimonial-card">
+              <div className="testimonial-content">
+                <div className="quote-icon">"</div>
+                <p>"Working with Makerr was a game-changer for our company. Their digital marketing strategies increased our online presence significantly and boosted our sales."</p>
+              </div>
+              <div className="testimonial-author">
+                <div className="author-info">
+                  <h4>Emily Rodriguez</h4>
+                  <span>Marketing Director, GrowthCorp</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="why-choose-us section section-bg">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">Why Choose Makerr?</h2>
+            <p className="section-subtitle">
+              We're committed to delivering exceptional results for every client
+            </p>
+          </div>
+          
+          <div className="reasons-grid">
+            <div className="reason-item">
+              <div className="reason-icon">
+                <i className="fas fa-rocket"></i>
+              </div>
+              <h3>Fast Delivery</h3>
+              <p>We pride ourselves on meeting deadlines without compromising quality. Our agile approach ensures rapid development and deployment.</p>
+            </div>
+
+            <div className="reason-item">
+              <div className="reason-icon">
+                <i className="fas fa-shield-alt"></i>
+              </div>
+              <h3>Secure & Reliable</h3>
+              <p>Security is our top priority. We implement industry best practices to ensure your data and systems are protected.</p>
+            </div>
+
+            <div className="reason-item">
+              <div className="reason-icon">
+                <i className="fas fa-users"></i>
+              </div>
+              <h3>Expert Team</h3>
+              <p>Our experienced professionals bring years of expertise across various technologies and industries to your project.</p>
+            </div>
+
+            <div className="reason-item">
+              <div className="reason-icon">
+                <i className="fas fa-headset"></i>
+              </div>
+              <h3>24/7 Support</h3>
+              <p>We're here when you need us. Our dedicated support team provides ongoing assistance and maintenance.</p>
+            </div>
+
+            <div className="reason-item">
+              <div className="reason-icon">
+                <i className="fas fa-chart-line"></i>
+              </div>
+              <h3>Proven Results</h3>
+              <p>Our track record speaks for itself. We've helped hundreds of businesses achieve their digital transformation goals.</p>
+            </div>
+
+            <div className="reason-item">
+              <div className="reason-icon">
+                <i className="fas fa-handshake"></i>
+              </div>
+              <h3>Partnership Approach</h3>
+              <p>We don't just deliver projects - we build lasting partnerships focused on your long-term success.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="contact-cta section">
+        <div className="container">
+          <div className="cta-content">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's discuss your requirements and create something amazing together. Our team is ready to bring your vision to life.</p>
+            <div className="cta-buttons">
+              <a href="tel:+15551234567" className="btn btn-primary">
+                <i className="fas fa-phone"></i>
+                Call Now
+              </a>
+              <a href="mailto:info@makerr.com" className="btn btn-secondary">
+                <i className="fas fa-envelope"></i>
+                Send Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
