@@ -1,76 +1,12 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const Admin = require('./models/Admin');
 require('dotenv').config();
-
-// Admin model
-const adminSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-    minlength: 3,
-    maxlength: 30
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-    lowercase: true
-  },
-  password: {
-    type: String,
-    required: true,
-    minlength: 6
-  },
-  firstName: {
-    type: String,
-    trim: true,
-    maxlength: 50
-  },
-  lastName: {
-    type: String,
-    trim: true,
-    maxlength: 50
-  },
-  role: {
-    type: String,
-    enum: ['admin', 'super_admin'],
-    default: 'admin'
-  },
-  isActive: {
-    type: Boolean,
-    default: true
-  }
-}, {
-  timestamps: true
-});
-
-// Hash password before saving
-adminSchema.pre('save', async function(next) {
-  if (!this.isModified('password')) return next();
-  
-  try {
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
-  } catch (error) {
-    next(error);
-  }
-});
-
-// Get full name
-adminSchema.virtual('fullName').get(function() {
-  return `${this.firstName || ''} ${this.lastName || ''}`.trim();
-});
-
-const Admin = mongoose.model('Admin', adminSchema);
 
 async function createFirstAdmin() {
   try {
     // Connect to MongoDB
-    await mongoose.connect(process.env.MONGODB_URI);
+    const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/makerr';
+    await mongoose.connect(MONGODB_URI);
     console.log('Connected to MongoDB');
 
     // Check if any admin exists
@@ -87,9 +23,7 @@ async function createFirstAdmin() {
       username: 'admin',
       email: 'admin@makerr.com',
       password: 'admin123',
-      firstName: 'Super',
-      lastName: 'Admin',
-      role: 'super_admin'
+      role: 'super-admin'
     });
 
     await admin.save();

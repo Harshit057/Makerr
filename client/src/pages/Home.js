@@ -5,10 +5,10 @@ import './Home.css';
 const Home = () => {
   const [services, setServices] = useState([]);
   const [stats] = useState([
-    { number: '50+', label: 'Projects Completed' },
-    { number: '25+', label: 'Happy Clients' },
-    { number: '5+', label: 'Years Experience' },
-    { number: '24/7', label: 'Support' }
+    { number: '50+', label: 'Projects Completed', icon: 'fas fa-project-diagram' },
+    { number: '25+', label: 'Happy Clients', icon: 'fas fa-smile' },
+    { number: '5+', label: 'Years Experience', icon: 'fas fa-calendar-alt' },
+    { number: '24/7', label: 'Support', icon: 'fas fa-headset' }
   ]);
 
   useEffect(() => {
@@ -41,10 +41,12 @@ const Home = () => {
               </p>
               <div className="hero-buttons">
                 <Link to="/services" className="btn btn-primary">
-                  Explore Services
+                  <i className="fas fa-rocket"></i>
+                  <span>Explore Services</span>
                 </Link>
                 <Link to="/contact" className="btn btn-secondary">
-                  Get Started
+                  <i className="fas fa-play"></i>
+                  <span>Get Started</span>
                 </Link>
               </div>
             </div>
@@ -78,6 +80,9 @@ const Home = () => {
           <div className="stats-grid">
             {stats.map((stat, index) => (
               <div key={index} className="stat-item">
+                <div className="stat-icon">
+                  <i className={stat.icon}></i>
+                </div>
                 <div className="stat-number">{stat.number}</div>
                 <div className="stat-label">{stat.label}</div>
               </div>

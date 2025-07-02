@@ -49,7 +49,7 @@ const Header = () => {
 
           <div className="header-actions">
             <Link to="/contact" className="btn btn-primary">
-              Get Quote
+              <span>Get Quote</span>
             </Link>
             <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
               <span className={`hamburger ${isMenuOpen ? 'hamburger-open' : ''}`}>

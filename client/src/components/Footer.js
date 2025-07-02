@@ -15,16 +15,16 @@ const Footer = () => {
               <p>Your trusted partner for software and business solutions. We turn your ideas into reality.</p>
             </div>
             <div className="social-links">
-              <a href="#" className="social-link" aria-label="Facebook">
+              <a href="https://facebook.com/makerr" className="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="#" className="social-link" aria-label="Twitter">
+              <a href="https://twitter.com/makerr" className="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="#" className="social-link" aria-label="LinkedIn">
+              <a href="https://linkedin.com/company/makerr" className="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-linkedin-in"></i>
               </a>
-              <a href="#" className="social-link" aria-label="Instagram">
+              <a href="https://instagram.com/makerr" className="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-instagram"></i>
               </a>
             </div>
@@ -46,7 +46,7 @@ const Footer = () => {
               <li><Link to="/about">About Us</Link></li>
               <li><Link to="/services">Our Services</Link></li>
               <li><Link to="/contact">Contact</Link></li>
-              <li><a href="#">Careers</a></li>
+              <li><a href="mailto:careers@makerr.com">Careers</a></li>
             </ul>
           </div>
 
@@ -64,8 +64,8 @@ const Footer = () => {
           <div className="footer-bottom-content">
             <p>&copy; {currentYear} Makerr. All rights reserved.</p>
             <div className="footer-bottom-links">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
+              <a href="/privacy-policy">Privacy Policy</a>
+              <a href="/terms-of-service">Terms of Service</a>
             </div>
           </div>
         </div>

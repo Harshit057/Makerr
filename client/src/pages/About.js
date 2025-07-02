@@ -117,14 +117,23 @@ const About = () => {
               </p>
               <div className="mission-stats">
                 <div className="stat">
+                  <div className="stat-icon">
+                    <i className="fas fa-project-diagram"></i>
+                  </div>
                   <span className="stat-number">50+</span>
                   <span className="stat-label">Projects Delivered</span>
                 </div>
                 <div className="stat">
+                  <div className="stat-icon">
+                    <i className="fas fa-smile"></i>
+                  </div>
                   <span className="stat-number">25+</span>
                   <span className="stat-label">Happy Clients</span>
                 </div>
                 <div className="stat">
+                  <div className="stat-icon">
+                    <i className="fas fa-calendar-alt"></i>
+                  </div>
                   <span className="stat-number">5+</span>
                   <span className="stat-label">Years Experience</span>
                 </div>

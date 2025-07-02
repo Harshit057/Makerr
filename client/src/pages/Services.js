@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import './Services.css';
 
@@ -16,14 +16,6 @@ const Services = () => {
     { id: 'security', label: 'Security' }
   ];
 
-  useEffect(() => {
-    fetchServices();
-  }, []);
-
-  useEffect(() => {
-    filterServices();
-  }, [services, activeFilter]);
-
   const fetchServices = async () => {
     try {
       const response = await fetch('/api/services');
@@ -36,13 +28,21 @@ const Services = () => {
     }
   };
 
-  const filterServices = () => {
+  const filterServices = useCallback(() => {
     if (activeFilter === 'all') {
       setFilteredServices(services);
     } else {
       setFilteredServices(services.filter(service => service.category === activeFilter));
     }
-  };
+  }, [activeFilter, services]);
+
+  useEffect(() => {
+    fetchServices();
+  }, []);
+
+  useEffect(() => {
+    filterServices();
+  }, [filterServices]);
 
   const handleFilterChange = (filterId) => {
     setActiveFilter(filterId);
@@ -84,7 +84,7 @@ const Services = () => {
                 className={`filter-btn ${activeFilter === filter.id ? 'active' : ''}`}
                 onClick={() => handleFilterChange(filter.id)}
               >
-                {filter.label}
+                <span>{filter.label}</span>
               </button>
             ))}
           </div>
