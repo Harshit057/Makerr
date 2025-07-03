@@ -166,4 +166,44 @@ router.put('/change-password', auth, async (req, res) => {
   }
 });
 
+// @route   GET /api/admin/contacts
+// @desc    Get all contacts for admin
+// @access  Private
+router.get('/contacts', auth, async (req, res) => {
+  try {
+    const { limit = 10, page = 1, status } = req.query;
+    const limitNum = parseInt(limit);
+    const pageNum = parseInt(page);
+    const skip = (pageNum - 1) * limitNum;
+
+    // Build query
+    let query = {};
+    if (status) {
+      query.status = status;
+    }
+
+    // Get contacts with pagination
+    const contacts = await require('../models/Contact').find(query)
+      .sort({ createdAt: -1 })
+      .limit(limitNum)
+      .skip(skip);
+
+    // Get total count for pagination
+    const total = await require('../models/Contact').countDocuments(query);
+
+    res.json({
+      contacts,
+      pagination: {
+        current: pageNum,
+        pages: Math.ceil(total / limitNum),
+        total
+      }
+    });
+
+  } catch (error) {
+    console.error('Get contacts error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 module.exports = router;

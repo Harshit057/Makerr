@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import AdminHeader from './components/AdminHeader';
 import AdminSidebar from './components/AdminSidebar';
 import Dashboard from './pages/Dashboard';
@@ -74,24 +74,22 @@ function AdminApp() {
   }
 
   return (
-    <Router>
-      <div className="admin-app">
-        <AdminHeader admin={adminData} onLogout={handleLogout} />
-        <div className="admin-main">
-          <AdminSidebar />
-          <div className="admin-content">
-            <Routes>
-              <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
-              <Route path="/admin/dashboard" element={<Dashboard />} />
-              <Route path="/admin/contacts" element={<Contacts />} />
-              <Route path="/admin/services" element={<Services />} />
-              <Route path="/admin/settings" element={<Settings admin={adminData} />} />
-              <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
-            </Routes>
-          </div>
+    <div className="admin-app">
+      <AdminHeader admin={adminData} onLogout={handleLogout} />
+      <div className="admin-main">
+        <AdminSidebar />
+        <div className="admin-content">
+          <Routes>
+            <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="contacts" element={<Contacts />} />
+            <Route path="services" element={<Services />} />
+            <Route path="settings" element={<Settings admin={adminData} />} />
+            <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
+          </Routes>
         </div>
       </div>
-    </Router>
+    </div>
   );
 }
 
