@@ -230,6 +230,88 @@
   flex-wrap: wrap;
 }
 
+/* Show More Section */
+.show-more-section {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.show-more-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.show-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+}
+
+.show-more-btn i {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.show-more-btn:hover i {
+  transform: translateY(2px);
+}
+
+/* Cart Button Styles */
+.cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cart-btn i {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.cart-btn:hover i {
+  transform: scale(1.1);
+}
+
+.cart-btn.added {
+  background: #16a34a !important;
+  border-color: #16a34a !important;
+  color: var(--white) !important;
+}
+
+.cart-btn.added:hover {
+  background: #15803d !important;
+  border-color: #15803d !important;
+  transform: translateY(-2px);
+}
+
+.cart-btn.added i {
+  animation: checkmark 0.5s ease;
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .services-hero-content h1 {

@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
+import Cart from './Cart';
 import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { cart } = useCart();
   const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
   };
 
   const isActive = (path) => {
@@ -53,6 +61,17 @@ const Header = () => {
           </nav>
 
           <div className="header-actions">
+            <button 
+              className="cart-icon"
+              onClick={toggleCart}
+              title="View selected services"
+            >
+              <i className="fas fa-shopping-cart"></i>
+              {cart.count > 0 && (
+                <span className="cart-badge">{cart.count}</span>
+              )}
+            </button>
+            
             <Link to="/contact" className="btn btn-primary">
               <span>Get Quote</span>
             </Link>
@@ -66,6 +85,8 @@ const Header = () => {
           </div>
         </div>
       </div>
+      
+      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </header>
   );
 };

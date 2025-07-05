@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import './Services.css';
 
 const Services = () => {
@@ -7,6 +8,11 @@ const Services = () => {
   const [filteredServices, setFilteredServices] = useState([]);
   const [activeFilter, setActiveFilter] = useState('all');
   const [loading, setLoading] = useState(true);
+  const [showAll, setShowAll] = useState(false);
+  const [servicesPerRow] = useState(3); // Number of services per row
+  const [initialRows] = useState(2); // Number of rows to show initially
+  
+  const { addService, removeService, isServiceInCart } = useCart();
 
   const filters = [
     { id: 'all', label: 'All Services' },
@@ -247,7 +253,25 @@ const Services = () => {
     } else {
       setFilteredServices(services.filter(service => service.category === activeFilter));
     }
+    // Reset show all when changing filters
+    setShowAll(false);
   }, [activeFilter, services]);
+
+  // Calculate displayed services based on showAll state
+  const getDisplayedServices = () => {
+    if (activeFilter === 'all' && !showAll) {
+      const maxInitialServices = servicesPerRow * initialRows;
+      return filteredServices.slice(0, maxInitialServices);
+    }
+    return filteredServices;
+  };
+
+  const displayedServices = getDisplayedServices();
+  const hasMoreServices = activeFilter === 'all' && filteredServices.length > (servicesPerRow * initialRows);
+
+  const toggleShowAll = () => {
+    setShowAll(!showAll);
+  };
 
   useEffect(() => {
     fetchServices();
@@ -259,6 +283,14 @@ const Services = () => {
 
   const handleFilterChange = (filterId) => {
     setActiveFilter(filterId);
+  };
+
+  const handleAddToCart = (service) => {
+    addService(service);
+  };
+
+  const handleRemoveFromCart = (serviceId) => {
+    removeService(serviceId);
   };
 
   if (loading) {
@@ -304,7 +336,7 @@ const Services = () => {
 
           {/* Services Grid */}
           <div className="services-grid grid grid-3">
-            {filteredServices.map((service) => (
+            {displayedServices.map((service) => (
               <div key={service.id} className="service-card card">
                 <div className="service-header">
                   <div className="service-icon">
@@ -328,16 +360,53 @@ const Services = () => {
                 </div>
                 
                 <div className="service-actions">
-                  <Link to="/contact" className="btn btn-primary">
+                  <Link to="/contact" className="btn btn-secondary">
                     Get Quote
                   </Link>
-                  <button className="btn btn-secondary learn-more-btn">
-                    Learn More
-                  </button>
+                  
+                  {isServiceInCart(service.id) ? (
+                    <button 
+                      className="btn btn-success cart-btn added"
+                      onClick={() => handleRemoveFromCart(service.id)}
+                    >
+                      <i className="fas fa-check"></i>
+                      <span>Added</span>
+                    </button>
+                  ) : (
+                    <button 
+                      className="btn btn-primary cart-btn"
+                      onClick={() => handleAddToCart(service)}
+                    >
+                      <i className="fas fa-plus"></i>
+                      <span>Add to Cart</span>
+                    </button>
+                  )}
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Show More/Less Button */}
+          {hasMoreServices && (
+            <div className="show-more-section">
+              <button 
+                className="btn btn-secondary show-more-btn"
+                onClick={toggleShowAll}
+              >
+                {showAll ? (
+                  <>
+                    <span>Show Less</span>
+                    <i className="fas fa-chevron-up"></i>
+                  </>
+                ) : (
+                  <>
+                    <span>Show More Services</span>
+                    <i className="fas fa-chevron-down"></i>
+                  </>
+                )}
+              </button>
+            </div>
+          )}
 
           {filteredServices.length === 0 && (
             <div className="no-services">

@@ -17,7 +17,7 @@ const transporter = nodemailer.createTransport({
 // @access  Public
 router.post('/', async (req, res) => {
   try {
-    const { name, email, phone, service, message } = req.body;
+    const { name, email, phone, company, service, message, isQuoteRequest, requestedServices } = req.body;
 
     // Validate required fields
     if (!name || !email || !service || !message) {
@@ -31,27 +31,45 @@ router.post('/', async (req, res) => {
       name,
       email,
       phone,
+      company,
       service,
-      message
+      message,
+      isQuoteRequest: isQuoteRequest || false,
+      requestedServices: requestedServices || []
     });
 
     await contact.save();
 
     // Send email notification (optional)
     try {
+      let emailSubject = `New Contact Form Submission - ${service}`;
+      let emailContent = `
+        <h3>New Contact Form Submission</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+        <p><strong>Company:</strong> ${company || 'Not provided'}</p>
+        <p><strong>Service:</strong> ${service}</p>`;
+
+      if (isQuoteRequest && requestedServices && requestedServices.length > 0) {
+        emailSubject = `New Quote Request - ${requestedServices.length} Services`;
+        emailContent += `
+        <p><strong>Quote Request - Services:</strong></p>
+        <ul>
+          ${requestedServices.map(srv => `<li>${srv.title} (${srv.category})</li>`).join('')}
+        </ul>`;
+      }
+
+      emailContent += `
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `;
+
       const mailOptions = {
         from: process.env.EMAIL_USER,
         to: process.env.EMAIL_USER,
-        subject: `New Contact Form Submission - ${service}`,
-        html: `
-          <h3>New Contact Form Submission</h3>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-          <p><strong>Service:</strong> ${service}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message}</p>
-        `
+        subject: emailSubject,
+        html: emailContent
       };
 
       await transporter.sendMail(mailOptions);
@@ -61,11 +79,14 @@ router.post('/', async (req, res) => {
     }
 
     res.status(201).json({
-      message: 'Contact form submitted successfully. We will get back to you soon!',
+      message: isQuoteRequest 
+        ? 'Quote request submitted successfully. We will get back to you soon!' 
+        : 'Contact form submitted successfully. We will get back to you soon!',
       contact: {
         name: contact.name,
         email: contact.email,
-        service: contact.service
+        service: contact.service,
+        isQuoteRequest: contact.isQuoteRequest
       }
     });
 

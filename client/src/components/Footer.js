@@ -52,11 +52,11 @@ const Footer = () => {
 
           <div className="footer-section">
             <h4>Contact Info</h4>
-            <div className="contact-info">
-              <p><i className="fas fa-envelope"></i> info.makerr@gmail.com</p>
-              <p><i className="fas fa-phone"></i> +91 8957688223</p>
-              <p><i className="fas fa-map-marker-alt"></i> Lucknow, Uttar Pradesh 226010, India</p>
-            </div>
+            <ul className="footer-links contact-info">
+              <li><i className="fas fa-envelope"></i> info.makerr@gmail.com</li>
+              <li><i className="fas fa-phone"></i> +91 8957688223</li>
+              <li><i className="fas fa-map-marker-alt"></i> Lucknow, Uttar Pradesh 226010, India</li>
+            </ul>
           </div>
         </div>
 

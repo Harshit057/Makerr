@@ -16,6 +16,10 @@ const contactSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
+  company: {
+    type: String,
+    trim: true
+  },
   service: {
     type: String,
     required: true
@@ -24,6 +28,15 @@ const contactSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  isQuoteRequest: {
+    type: Boolean,
+    default: false
+  },
+  requestedServices: [{
+    id: Number,
+    title: String,
+    category: String
+  }],
   status: {
     type: String,
     enum: ['pending', 'contacted', 'completed'],

@@ -75,6 +75,19 @@ main {
   color: var(--white);
 }
 
+.btn-success {
+  background: #16a34a;
+  color: var(--white);
+  border: 2px solid #16a34a;
+}
+
+.btn-success:hover {
+  background: #15803d;
+  border-color: #15803d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
+}
+
 .btn-large {
   padding: 18px 36px;
   font-size: 1.1rem;

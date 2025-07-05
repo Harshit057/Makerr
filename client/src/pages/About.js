@@ -3,33 +3,6 @@ import { Link } from 'react-router-dom';
 import './About.css';
 
 const About = () => {
-  const teamMembers = [
-    {
-      name: 'John Doe',
-      position: 'CEO & Founder',
-      image: '/api/placeholder/300/300',
-      bio: 'Experienced entrepreneur with 10+ years in software development and business strategy.'
-    },
-    {
-      name: 'Jane Smith',
-      position: 'CTO',
-      image: '/api/placeholder/300/300',
-      bio: 'Full-stack developer and tech architect with expertise in modern web technologies.'
-    },
-    {
-      name: 'Mike Johnson',
-      position: 'Lead Designer',
-      image: '/api/placeholder/300/300',
-      bio: 'Creative designer specializing in UI/UX and brand identity with 8+ years experience.'
-    },
-    {
-      name: 'Sarah Wilson',
-      position: 'Marketing Director',
-      image: '/api/placeholder/300/300',
-      bio: 'Digital marketing expert with proven track record in SEO, social media, and content strategy.'
-    }
-  ];
-
   const values = [
     {
       icon: 'fas fa-star',
@@ -55,32 +28,27 @@ const About = () => {
 
   const milestones = [
     {
-      year: '2019',
+      year: '2023',
       title: 'Company Founded',
       description: 'Makerr was founded with a vision to help businesses succeed in the digital age.'
     },
     {
-      year: '2020',
+      year: '2024',
       title: 'First Major Client',
       description: 'Secured our first enterprise client and delivered a successful e-commerce platform.'
     },
     {
-      year: '2021',
+      year: '2024',
       title: 'Team Expansion',
       description: 'Expanded our team to include specialists in cybersecurity and digital marketing.'
     },
     {
-      year: '2022',
-      title: '50+ Projects',
-      description: 'Completed over 50 successful projects across various industries.'
-    },
-    {
-      year: '2023',
+      year: '2025',
       title: 'Industry Recognition',
       description: 'Received industry awards for innovation and client satisfaction.'
     },
     {
-      year: '2024',
+      year: '2025',
       title: 'Global Reach',
       description: 'Expanded services globally, serving clients across multiple continents.'
     }
@@ -118,24 +86,15 @@ const About = () => {
               </p>
               <div className="mission-stats">
                 <div className="stat">
-                  <div className="stat-icon">
-                    <i className="fas fa-project-diagram"></i>
-                  </div>
                   <span className="stat-number">50+</span>
                   <span className="stat-label">Projects Delivered</span>
                 </div>
                 <div className="stat">
-                  <div className="stat-icon">
-                    <i className="fas fa-smile"></i>
-                  </div>
                   <span className="stat-number">25+</span>
                   <span className="stat-label">Happy Clients</span>
                 </div>
                 <div className="stat">
-                  <div className="stat-icon">
-                    <i className="fas fa-calendar-alt"></i>
-                  </div>
-                  <span className="stat-number">5+</span>
+                  <span className="stat-number">3+</span>
                   <span className="stat-label">Years Experience</span>
                 </div>
               </div>
@@ -167,34 +126,6 @@ const About = () => {
                 </div>
                 <h3>{value.title}</h3>
                 <p>{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="team section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Meet Our Team</h2>
-            <p className="section-subtitle">
-              The talented individuals behind Makerr's success
-            </p>
-          </div>
-          <div className="team-grid grid grid-4">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="team-member card">
-                <div className="member-image">
-                  <div className="image-placeholder">
-                    <i className="fas fa-user"></i>
-                  </div>
-                </div>
-                <div className="member-info">
-                  <h3>{member.name}</h3>
-                  <p className="member-position">{member.position}</p>
-                  <p className="member-bio">{member.bio}</p>
-                </div>
               </div>
             ))}
           </div>
@@ -236,7 +167,7 @@ const About = () => {
                   <i className="fas fa-check-circle"></i>
                   <div>
                     <h4>Proven Track Record</h4>
-                    <p>5+ years of delivering successful projects across various industries</p>
+                    <p>3+ years of delivering successful projects across various industries</p>
                   </div>
                 </div>
                 <div className="feature">

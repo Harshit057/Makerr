@@ -10,36 +10,39 @@ import Careers from './pages/Careers';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import AdminApp from './admin/AdminApp';
+import { CartProvider } from './context/CartContext';
 import './App.css';
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Routes>
-          {/* Admin Routes */}
-          <Route path="/admin/*" element={<AdminApp />} />
-          
-          {/* Public Routes */}
-          <Route path="/*" element={
-            <>
-              <Header />
-              <main>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/services" element={<Services />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/careers" element={<Careers />} />
-                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                  <Route path="/terms-of-service" element={<TermsOfService />} />
-                </Routes>
-              </main>
-              <Footer />
-            </>
-          } />
-        </Routes>
-      </div>
+      <CartProvider>
+        <div className="App">
+          <Routes>
+            {/* Admin Routes */}
+            <Route path="/admin/*" element={<AdminApp />} />
+            
+            {/* Public Routes */}
+            <Route path="/*" element={
+              <>
+                <Header />
+                <main>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/careers" element={<Careers />} />
+                    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                    <Route path="/terms-of-service" element={<TermsOfService />} />
+                  </Routes>
+                </main>
+                <Footer />
+              </>
+            } />
+          </Routes>
+        </div>
+      </CartProvider>
     </Router>
   );
 }
