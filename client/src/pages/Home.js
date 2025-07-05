@@ -40,12 +40,10 @@ const Home = () => {
                 We provide comprehensive software and business solutions to help your company thrive in the digital age. From app development to cyber security, we've got you covered.
               </p>
               <div className="hero-buttons">
-                <Link to="/services" className="btn btn-primary">
-                  <i className="fas fa-rocket"></i>
+                <Link to="/services" className="btn btn-primary btn-large">
                   <span>Explore Services</span>
                 </Link>
-                <Link to="/contact" className="btn btn-secondary">
-                  <i className="fas fa-play"></i>
+                <Link to="/contact" className="btn btn-secondary btn-large">
                   <span>Get Started</span>
                 </Link>
               </div>
@@ -180,7 +178,7 @@ const Home = () => {
               <Link to="/contact" className="btn btn-primary">
                 Start Your Project
               </Link>
-              <a href="tel:+15551234567" className="btn btn-secondary">
+              <a href="tel:+918957688223" className="btn btn-secondary">
                 Call Us Now
               </a>
             </div>

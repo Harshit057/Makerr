@@ -75,6 +75,12 @@ main {
   color: var(--white);
 }
 
+.btn-large {
+  padding: 18px 36px;
+  font-size: 1.1rem;
+  min-width: 180px;
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;

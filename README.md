@@ -191,8 +191,8 @@ This project is licensed under the MIT License.
 ## 📞 Support
 
 For support and inquiries:
-- Email: info@makerr.com
-- Phone: +1 (555) 123-4567
+- Email: info.makerr@gmail.com
+- Phone: +91 8957688223
 
 ## 🚀 Future Enhancements
 

@@ -18,7 +18,19 @@ const Services = () => {
 
   const fetchServices = async () => {
     try {
-      // For now, we'll use static data. You can replace this with actual API call later
+      // Fetch services from API first
+      const response = await fetch('/api/services');
+      
+      if (response.ok) {
+        const data = await response.json();
+        if (data.services && data.services.length > 0) {
+          setServices(data.services);
+          setLoading(false);
+          return;
+        }
+      }
+      
+      // Fallback to static data if API fails or returns no data
       const staticServices = [
         // Design Services
         {
@@ -390,7 +402,7 @@ const Services = () => {
               <Link to="/contact" className="btn btn-primary">
                 Start Your Project
               </Link>
-              <a href="mailto:info@makerr.com" className="btn btn-secondary">
+              <a href="mailto:info.makerr@gmail.com" className="btn btn-secondary">
                 Send Email
               </a>
             </div>

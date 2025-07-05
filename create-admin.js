@@ -21,7 +21,7 @@ async function createFirstAdmin() {
     // Create first super admin
     const admin = new Admin({
       username: 'admin',
-      email: 'admin@makerr.com',
+      email: 'info.makerr@gmail.com',
       password: 'admin123',
       role: 'super-admin'
     });
@@ -29,7 +29,7 @@ async function createFirstAdmin() {
     await admin.save();
     
     console.log('✅ First admin user created successfully!');
-    console.log('📧 Email: admin@makerr.com');
+    console.log('📧 Email: info.makerr@gmail.com');
     console.log('👤 Username: admin');
     console.log('🔐 Password: admin123');
     console.log('🔗 Login at: http://localhost:3000/admin/login');

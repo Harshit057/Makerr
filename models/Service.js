@@ -45,6 +45,11 @@ const serviceSchema = new mongoose.Schema({
   }
 });
 
+// Add indexes for better query performance
+serviceSchema.index({ isActive: 1, order: 1 });
+serviceSchema.index({ category: 1, isActive: 1 });
+serviceSchema.index({ order: 1, createdAt: 1 });
+
 // Update the updatedAt field before saving
 serviceSchema.pre('save', function(next) {
   this.updatedAt = Date.now();

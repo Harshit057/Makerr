@@ -40,6 +40,11 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link to="/careers" className={`nav-link ${isActive('/careers')}`} onClick={() => setIsMenuOpen(false)}>
+                  Careers
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link to="/contact" className={`nav-link ${isActive('/contact')}`} onClick={() => setIsMenuOpen(false)}>
                   Contact
                 </Link>

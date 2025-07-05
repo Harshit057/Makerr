@@ -76,12 +76,18 @@ router.get('/', async (req, res) => {
       filter.category = category;
     }
     
-    const services = await Service.find(filter).sort({ order: 1, createdAt: 1 });
+    const services = await Service.find(filter)
+      .select('title description features icon category')
+      .sort({ order: 1, createdAt: 1 })
+      .lean(); // Use lean() for better performance
     
     // If no services found, seed with default data
     if (services.length === 0 && !category) {
       await Service.insertMany(defaultServices);
-      const newServices = await Service.find(filter).sort({ order: 1, createdAt: 1 });
+      const newServices = await Service.find(filter)
+        .select('title description features icon category')
+        .sort({ order: 1, createdAt: 1 })
+        .lean();
       
       return res.json({
         services: newServices.map(service => ({

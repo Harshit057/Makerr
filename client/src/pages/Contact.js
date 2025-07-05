@@ -208,8 +208,8 @@ const Contact = () => {
                   </div>
                   <div className="contact-details">
                     <h3>Email</h3>
-                    <p>info@makerr.com</p>
-                    <p>support@makerr.com</p>
+                    <p>info.makerr@gmail.com</p>
+                    <p>info.makerr@gmail.com</p>
                   </div>
                 </div>
 
@@ -219,7 +219,7 @@ const Contact = () => {
                   </div>
                   <div className="contact-details">
                     <h3>Phone</h3>
-                    <p>+1 (555) 123-4567</p>
+                    <p>+91 8957688223</p>
                     <p>Mon - Fri, 9AM - 6PM</p>
                   </div>
                 </div>
@@ -230,8 +230,8 @@ const Contact = () => {
                   </div>
                   <div className="contact-details">
                     <h3>Office</h3>
-                    <p>123 Business Street</p>
-                    <p>City, State 12345</p>
+                    <p>Lucknow, Uttar Pradesh</p>
+                    <p>226010, India</p>
                   </div>
                 </div>
 
@@ -250,16 +250,16 @@ const Contact = () => {
               <div className="social-section">
                 <h3>Follow Us</h3>
                 <div className="social-links">
-                  <a href="https://facebook.com/makerr" className="social-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.facebook.com/share/1AZ4iMPGxo/" className="social-link" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-facebook-f"></i>
                   </a>
-                  <a href="https://twitter.com/makerr" className="social-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://x.com/Makerr_tech?t=UBqxXXXKjvFd6PX5O6uzTQ&s=09" className="social-link" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-twitter"></i>
                   </a>
-                  <a href="https://linkedin.com/company/makerr" className="social-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/makerr-tech-5a0424373?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="social-link" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-linkedin-in"></i>
                   </a>
-                  <a href="https://instagram.com/makerr" className="social-link" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.instagram.com/makerr.tech?igsh=aTVnaHg5dG5wZzR4" className="social-link" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-instagram"></i>
                   </a>
                 </div>
@@ -295,141 +295,6 @@ const Contact = () => {
             <div className="faq-item">
               <h3>Can you work with existing systems?</h3>
               <p>Absolutely! We specialize in system integration and can work with your existing infrastructure. We'll assess your current setup and recommend the best approach for seamless integration.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="testimonials section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">What Our Clients Say</h2>
-            <p className="section-subtitle">
-              Don't just take our word for it - hear from our satisfied clients
-            </p>
-          </div>
-          
-          <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <div className="quote-icon">"</div>
-                <p>"Makerr transformed our business with their innovative solutions. Their team was professional, responsive, and delivered exactly what we needed on time and within budget."</p>
-              </div>
-              <div className="testimonial-author">
-                <div className="author-info">
-                  <h4>Sarah Johnson</h4>
-                  <span>CEO, TechStart Inc.</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <div className="quote-icon">"</div>
-                <p>"The level of expertise and attention to detail was outstanding. They not only built our application but also provided valuable insights that improved our business processes."</p>
-              </div>
-              <div className="testimonial-author">
-                <div className="author-info">
-                  <h4>Michael Chen</h4>
-                  <span>CTO, InnovateNow</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <div className="quote-icon">"</div>
-                <p>"Working with Makerr was a game-changer for our company. Their digital marketing strategies increased our online presence significantly and boosted our sales."</p>
-              </div>
-              <div className="testimonial-author">
-                <div className="author-info">
-                  <h4>Emily Rodriguez</h4>
-                  <span>Marketing Director, GrowthCorp</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="why-choose-us section section-bg">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Why Choose Makerr?</h2>
-            <p className="section-subtitle">
-              We're committed to delivering exceptional results for every client
-            </p>
-          </div>
-          
-          <div className="reasons-grid">
-            <div className="reason-item">
-              <div className="reason-icon">
-                <i className="fas fa-rocket"></i>
-              </div>
-              <h3>Fast Delivery</h3>
-              <p>We pride ourselves on meeting deadlines without compromising quality. Our agile approach ensures rapid development and deployment.</p>
-            </div>
-
-            <div className="reason-item">
-              <div className="reason-icon">
-                <i className="fas fa-shield-alt"></i>
-              </div>
-              <h3>Secure & Reliable</h3>
-              <p>Security is our top priority. We implement industry best practices to ensure your data and systems are protected.</p>
-            </div>
-
-            <div className="reason-item">
-              <div className="reason-icon">
-                <i className="fas fa-users"></i>
-              </div>
-              <h3>Expert Team</h3>
-              <p>Our experienced professionals bring years of expertise across various technologies and industries to your project.</p>
-            </div>
-
-            <div className="reason-item">
-              <div className="reason-icon">
-                <i className="fas fa-headset"></i>
-              </div>
-              <h3>24/7 Support</h3>
-              <p>We're here when you need us. Our dedicated support team provides ongoing assistance and maintenance.</p>
-            </div>
-
-            <div className="reason-item">
-              <div className="reason-icon">
-                <i className="fas fa-chart-line"></i>
-              </div>
-              <h3>Proven Results</h3>
-              <p>Our track record speaks for itself. We've helped hundreds of businesses achieve their digital transformation goals.</p>
-            </div>
-
-            <div className="reason-item">
-              <div className="reason-icon">
-                <i className="fas fa-handshake"></i>
-              </div>
-              <h3>Partnership Approach</h3>
-              <p>We don't just deliver projects - we build lasting partnerships focused on your long-term success.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA Section */}
-      <section className="contact-cta section">
-        <div className="container">
-          <div className="cta-content">
-            <h2>Ready to Start Your Project?</h2>
-            <p>Let's discuss your requirements and create something amazing together. Our team is ready to bring your vision to life.</p>
-            <div className="cta-buttons">
-              <a href="tel:+15551234567" className="btn btn-primary">
-                <i className="fas fa-phone"></i>
-                Call Now
-              </a>
-              <a href="mailto:info@makerr.com" className="btn btn-secondary">
-                <i className="fas fa-envelope"></i>
-                Send Email
-              </a>
             </div>
           </div>
         </div>
