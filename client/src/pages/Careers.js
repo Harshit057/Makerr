@@ -204,16 +204,6 @@ const Careers = () => {
 
   const benefits = [
     {
-      title: "Competitive Salary",
-      description: "Industry-standard compensation packages",
-      icon: "fas fa-rupee-sign"
-    },
-    {
-      title: "Health Insurance",
-      description: "Comprehensive health coverage for you and your family",
-      icon: "fas fa-shield-alt"
-    },
-    {
       title: "Flexible Hours",
       description: "Work-life balance with flexible working hours",
       icon: "fas fa-clock"
