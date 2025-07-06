@@ -32,11 +32,14 @@ const contactSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  requestedServices: [{
-    id: Number,
-    title: String,
-    category: String
-  }],
+  requestedServices: {
+    type: [{
+      id: String,  // Changed from Number to String to handle MongoDB ObjectIds
+      title: String,
+      category: String
+    }],
+    default: []
+  },
   status: {
     type: String,
     enum: ['pending', 'contacted', 'completed'],

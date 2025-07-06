@@ -27,36 +27,64 @@ const QuoteModal = ({ isOpen, onClose, selectedServices = [] }) => {
     setSubmitMessage('');
 
     try {
-      // Prepare the data to send
-      const quoteData = {
-        ...formData,
-        services: selectedServices.map(service => ({
-          id: service.id,
-          title: service.title,
-          category: service.category
-        })),
-        timestamp: new Date().toISOString()
+      // Prepare message content
+      const servicesText = selectedServices.map(s => `- ${s.title} (${s.category})`).join('\n');
+      const additionalText = formData.message && formData.message.trim() 
+        ? `\n\nAdditional Requirements:\n${formData.message}` 
+        : '';
+      const fullMessage = `Quote Request for Services:\n\nServices Requested:\n${servicesText}${additionalText}`;
+
+      // Ensure requestedServices have the correct format
+      const cleanedServices = selectedServices.map(service => ({
+        id: service.id || service._id || 0,
+        title: service.title || '',
+        category: service.category || ''
+      }));
+
+      const requestData = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone || '',
+        company: formData.company || '',
+        service: 'Quote Request',
+        message: fullMessage,
+        isQuoteRequest: true,
+        requestedServices: cleanedServices
       };
 
-      // Send to backend
-      const response = await fetch('/api/contact', {
+      console.log('Sending quote request:', requestData);
+      console.log('Selected services:', selectedServices);
+      console.log('Cleaned services:', cleanedServices);
+
+      // Send to backend (using full URL to bypass proxy issues)
+      const backendUrl = process.env.NODE_ENV === 'production' ? '/api/contact' : 'http://localhost:5000/api/contact';
+      const response = await fetch(backendUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          service: 'Quote Request',
-          message: `Quote Request for Services:\n\nServices Requested:\n${selectedServices.map(s => `- ${s.title} (${s.category})`).join('\n')}\n\nAdditional Message:\n${formData.message}`,
-          isQuoteRequest: true,
-          requestedServices: selectedServices
-        })
+        body: JSON.stringify(requestData)
       });
 
+      console.log('Response received:', response.status, response.statusText);
+      console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+      
+      // Log response content regardless of status
+      const responseText = await response.text();
+      console.log('Response body:', responseText);
+      
+      // Try to parse as JSON
+      let result;
+      try {
+        result = JSON.parse(responseText);
+        console.log('Parsed response:', result);
+      } catch (e) {
+        console.error('Failed to parse response as JSON:', e);
+        result = { message: responseText };
+      }
+
       if (response.ok) {
+        console.log('Success response:', result);
         setSubmitMessage('Quote request sent successfully! We\'ll get back to you soon.');
         // Clear form and cart
         setFormData({
@@ -74,7 +102,12 @@ const QuoteModal = ({ isOpen, onClose, selectedServices = [] }) => {
           setSubmitMessage('');
         }, 2000);
       } else {
-        throw new Error('Failed to send quote request');
+        let errorMessage = 'Failed to send quote request';
+        if (result && result.message) {
+          errorMessage = result.message;
+        }
+        console.error('Error response:', result);
+        throw new Error(errorMessage);
       }
     } catch (error) {
       console.error('Error sending quote request:', error);

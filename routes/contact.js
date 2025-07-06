@@ -17,28 +17,33 @@ const transporter = nodemailer.createTransport({
 // @access  Public
 router.post('/', async (req, res) => {
   try {
+    console.log('Received contact request:', req.body);
     const { name, email, phone, company, service, message, isQuoteRequest, requestedServices } = req.body;
 
-    // Validate required fields
-    if (!name || !email || !service || !message) {
+    // Basic validation - only require name, email, and service
+    if (!name || !email || !service) {
       return res.status(400).json({ 
-        message: 'Please fill in all required fields' 
+        message: 'Please fill in all required fields (name, email, service)' 
       });
     }
 
+    // Ensure message has some content (use default if empty)
+    const finalMessage = message && message.trim() ? message : 'Contact form submission.';
+
     // Create new contact
     const contact = new Contact({
-      name,
-      email,
-      phone,
-      company,
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone || '',
+      company: company || '',
       service,
-      message,
+      message: finalMessage,
       isQuoteRequest: isQuoteRequest || false,
       requestedServices: requestedServices || []
     });
 
     await contact.save();
+    console.log('Contact saved successfully:', contact._id);
 
     // Send email notification (optional)
     try {
@@ -74,10 +79,11 @@ router.post('/', async (req, res) => {
 
       await transporter.sendMail(mailOptions);
     } catch (emailError) {
-      console.log('Email sending failed:', emailError);
+      console.log('Email sending failed:', emailError.message);
       // Don't fail the request if email fails
     }
 
+    console.log('Sending success response...');
     res.status(201).json({
       message: isQuoteRequest 
         ? 'Quote request submitted successfully. We will get back to you soon!' 
@@ -91,9 +97,23 @@ router.post('/', async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Contact form error:', error);
+    console.error('Contact form error:', error.message);
+    console.error('Error details:', error);
+    console.error('Request body was:', req.body);
+    
+    // Send more specific error message
+    let errorMessage = 'Server error. Please try again later.';
+    if (error.name === 'ValidationError') {
+      errorMessage = 'Validation error: ' + Object.values(error.errors).map(e => e.message).join(', ');
+    } else if (error.name === 'MongoError' || error.name === 'MongooseError') {
+      errorMessage = 'Database error. Please try again later.';
+    } else if (error.code === 11000) {
+      errorMessage = 'Duplicate entry detected.';
+    }
+    
     res.status(500).json({ 
-      message: 'Server error. Please try again later.' 
+      message: errorMessage,
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 });

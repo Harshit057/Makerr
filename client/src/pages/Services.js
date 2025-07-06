@@ -24,8 +24,9 @@ const Services = () => {
 
   const fetchServices = async () => {
     try {
-      // Fetch services from API first
-      const response = await fetch('/api/services');
+      // Fetch services from API first (using full URL to bypass proxy issues)
+      const backendUrl = process.env.NODE_ENV === 'production' ? '/api/services' : 'http://localhost:5000/api/services';
+      const response = await fetch(backendUrl);
       
       if (response.ok) {
         const data = await response.json();
