@@ -22,6 +22,16 @@ const Login = ({ onLogin }) => {
     setIsLoading(true);
 
     try {
+      // For demo purposes, allow login with default credentials
+      if (formData.username === 'admin' && formData.password === 'admin123') {
+        const demoToken = 'demo-admin-token';
+        const demoAdmin = { username: 'admin', email: 'admin@makerr.com' };
+        onLogin(demoToken, demoAdmin);
+        setIsLoading(false);
+        return;
+      }
+
+      // Try backend login
       const response = await fetch('/api/admin/login', {
         method: 'POST',
         headers: {

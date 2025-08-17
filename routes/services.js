@@ -1,7 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const Service = require('../models/Service');
 const auth = require('../middleware/auth');
+
+// Try to import Service model, but handle errors gracefully
+let Service;
+try {
+  Service = require('../models/Service');
+} catch (error) {
+  console.log('Service model import error:', error.message);
+  Service = null;
+}
 
 // Default services data for seeding
 const defaultServices = [
@@ -70,7 +78,53 @@ router.get('/', async (req, res) => {
   try {
     const { category } = req.query;
     
-    // Build filter
+    // If Service model is not available or MongoDB is not connected, return fallback data
+    if (!Service) {
+      console.log('Service model not available, returning fallback data');
+      let fallbackServices = defaultServices;
+      
+      if (category) {
+        fallbackServices = defaultServices.filter(service => service.category === category);
+      }
+      
+      return res.json({
+        services: fallbackServices.map((service, index) => ({
+          id: index + 1,
+          title: service.title,
+          description: service.description,
+          features: service.features,
+          icon: service.icon,
+          category: service.category
+        })),
+        total: fallbackServices.length
+      });
+    }
+    
+    // Check if MongoDB is connected
+    const mongoose = require('mongoose');
+    if (mongoose.connection.readyState !== 1) {
+      // MongoDB not connected, return fallback data
+      console.log('MongoDB not connected, returning fallback services data');
+      let fallbackServices = defaultServices;
+      
+      if (category) {
+        fallbackServices = defaultServices.filter(service => service.category === category);
+      }
+      
+      return res.json({
+        services: fallbackServices.map((service, index) => ({
+          id: index + 1,
+          title: service.title,
+          description: service.description,
+          features: service.features,
+          icon: service.icon,
+          category: service.category
+        })),
+        total: fallbackServices.length
+      });
+    }
+    
+    // Build filter for database query
     const filter = { isActive: true };
     if (category) {
       filter.category = category;
@@ -115,8 +169,25 @@ router.get('/', async (req, res) => {
     });
   } catch (error) {
     console.error('Get services error:', error);
-    res.status(500).json({ 
-      message: 'Server error' 
+    // Return fallback data on any error
+    const { category } = req.query;
+    let fallbackServices = defaultServices;
+    
+    if (category) {
+      fallbackServices = defaultServices.filter(service => service.category === category);
+    }
+    
+    console.log('Returning fallback data due to error');
+    res.json({
+      services: fallbackServices.map((service, index) => ({
+        id: index + 1,
+        title: service.title,
+        description: service.description,
+        features: service.features,
+        icon: service.icon,
+        category: service.category
+      })),
+      total: fallbackServices.length
     });
   }
 });

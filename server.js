@@ -17,14 +17,18 @@ app.use(express.urlencoded({ extended: true }));
 // MongoDB connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/makerr';
 console.log('Connecting to MongoDB:', MONGODB_URI);
-mongoose.connect(MONGODB_URI);
+
+// Try to connect to MongoDB, but don't crash if it fails
+mongoose.connect(MONGODB_URI).catch(err => {
+  console.log('MongoDB connection failed, continuing without database:', err.message);
+});
 
 mongoose.connection.on('connected', () => {
   console.log('Connected to MongoDB successfully');
 });
 
 mongoose.connection.on('error', (err) => {
-  console.log('MongoDB connection error:', err);
+  console.log('MongoDB connection error:', err.message);
 });
 
 mongoose.connection.on('disconnected', () => {
@@ -32,6 +36,7 @@ mongoose.connection.on('disconnected', () => {
 });
 
 // Routes
+console.log('🔧 Setting up API routes...');
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/services', require('./routes/services'));
 app.use('/api/admin', require('./routes/admin'));
@@ -49,5 +54,6 @@ if (process.env.NODE_ENV === 'production') {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`📡 API endpoints available at http://localhost:${PORT}/api/`);
 });

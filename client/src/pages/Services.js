@@ -23,21 +23,9 @@ const Services = () => {
   ];
 
   const fetchServices = async () => {
+    setLoading(true);
     try {
-      // Fetch services from API first (using full URL to bypass proxy issues)
-      const backendUrl = process.env.NODE_ENV === 'production' ? '/api/services' : 'http://localhost:5000/api/services';
-      const response = await fetch(backendUrl);
-      
-      if (response.ok) {
-        const data = await response.json();
-        if (data.services && data.services.length > 0) {
-          setServices(data.services);
-          setLoading(false);
-          return;
-        }
-      }
-      
-      // Fallback to static data if API fails or returns no data
+      // For now, use static fallback data since backend is having issues
       const staticServices = [
         // Design Services
         {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import Cart from './Cart';
@@ -9,6 +9,7 @@ const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { cart } = useCart();
   const location = useLocation();
+  const navRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,6 +18,46 @@ const Header = () => {
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
   };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  // Close menu on outside click and prevent body scroll
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target) && !event.target.closest('.menu-toggle')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const handleTouchOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target) && !event.target.closest('.menu-toggle')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleTouchOutside);
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Restore body scroll when menu is closed
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleTouchOutside);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   const isActive = (path) => {
     return location.pathname === path ? 'active' : '';
@@ -30,30 +71,30 @@ const Header = () => {
             <span className="logo-text">Makerr</span>
           </Link>
           
-          <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
+          <nav ref={navRef} className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
             <ul className="nav-list">
               <li className="nav-item">
-                <Link to="/" className={`nav-link ${isActive('/')}`} onClick={() => setIsMenuOpen(false)}>
+                <Link to="/" className={`nav-link ${isActive('/')}`} onClick={closeMenu}>
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/services" className={`nav-link ${isActive('/services')}`} onClick={() => setIsMenuOpen(false)}>
+                <Link to="/services" className={`nav-link ${isActive('/services')}`} onClick={closeMenu}>
                   Services
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/about" className={`nav-link ${isActive('/about')}`} onClick={() => setIsMenuOpen(false)}>
+                <Link to="/about" className={`nav-link ${isActive('/about')}`} onClick={closeMenu}>
                   About
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/careers" className={`nav-link ${isActive('/careers')}`} onClick={() => setIsMenuOpen(false)}>
+                <Link to="/careers" className={`nav-link ${isActive('/careers')}`} onClick={closeMenu}>
                   Careers
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/contact" className={`nav-link ${isActive('/contact')}`} onClick={() => setIsMenuOpen(false)}>
+                <Link to="/contact" className={`nav-link ${isActive('/contact')}`} onClick={closeMenu}>
                   Contact
                 </Link>
               </li>
