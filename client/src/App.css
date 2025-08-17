@@ -6,16 +6,27 @@
 }
 
 :root {
-  --primary-color: #2563eb;
-  --secondary-color: #1e40af;
-  --accent-color: #f59e0b;
-  --text-dark: #1f2937;
-  --text-light: #6b7280;
-  --bg-light: #f9fafb;
+  --primary-color: #1a237e;
+  --secondary-color: #0f1419;
+  --accent-color: #c9a961;
+  --tertiary-color: #7c3aed;
+  --success-color: #059669;
+  --text-dark: #0f1419;
+  --text-light: #64748b;
+  --bg-light: #f8fafc;
+  --bg-accent: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  --bg-gold-light: linear-gradient(135deg, #fefbef 0%, #fef3c7 100%);
+  --bg-purple-light: linear-gradient(135deg, #faf7ff 0%, #f3e8ff 100%);
+  --bg-dark: #0f172a;
   --white: #ffffff;
-  --gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-  --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  --border-radius: 8px;
+  --gradient: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+  --gradient-gold: linear-gradient(135deg, #c9a961 0%, #b8860b 100%);
+  --gradient-purple: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  --gradient-mixed: linear-gradient(135deg, #1a237e 0%, #7c3aed 50%, #c9a961 100%);
+  --shadow: 0 10px 25px rgba(15, 20, 25, 0.15);
+  --shadow-gold: 0 10px 25px rgba(201, 169, 97, 0.2);
+  --shadow-purple: 0 10px 25px rgba(124, 58, 237, 0.2);
+  --border-radius: 12px;
 }
 
 body {
@@ -43,7 +54,7 @@ main {
 
 /* Buttons */
 .btn {
-  padding: 12px 24px;
+  padding: 14px 32px;
   border: none;
   border-radius: var(--border-radius);
   font-weight: 600;
@@ -52,16 +63,36 @@ main {
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
 }
 
 .btn-primary {
   background: var(--gradient);
   color: var(--white);
+  box-shadow: 0 4px 15px rgba(26, 35, 126, 0.3);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(26, 35, 126, 0.4);
 }
 
 .btn-secondary {
@@ -73,19 +104,33 @@ main {
 .btn-secondary:hover {
   background: var(--primary-color);
   color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 35, 126, 0.3);
+}
+
+.btn-accent {
+  background: var(--gradient-gold);
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+}
+
+.btn-accent:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold);
 }
 
 .btn-success {
-  background: #16a34a;
+  background: #059669;
   color: var(--white);
-  border: 2px solid #16a34a;
+  border: 2px solid #059669;
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
 }
 
 .btn-success:hover {
-  background: #15803d;
-  border-color: #15803d;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
+  background: #047857;
+  border-color: #047857;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4);
 }
 
 .btn-large {
@@ -123,12 +168,32 @@ p {
   background: var(--white);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
-  padding: 2rem;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(15, 20, 25, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-gold);
+  transform: scaleX(0);
   transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(15, 20, 25, 0.12);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
 }
 
 /* Grid */
@@ -155,7 +220,19 @@ p {
 }
 
 .section-bg {
-  background: var(--bg-light);
+  background: var(--bg-accent);
+}
+
+.section-bg-gold {
+  background: var(--bg-gold-light);
+}
+
+.section-bg-purple {
+  background: var(--bg-purple-light);
+}
+
+.section-bg-gradient {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #fef3c7 100%);
 }
 
 .section-header {

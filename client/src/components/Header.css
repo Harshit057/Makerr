@@ -96,7 +96,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  background: var(--primary-color);
+  background: var(--accent-color);
   color: var(--white);
   border-radius: 50%;
   width: 20px;

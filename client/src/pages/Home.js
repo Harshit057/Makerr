@@ -87,7 +87,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="services section section-bg">
+      <section className="services section section-bg-gradient">
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">Our Services</h2>
@@ -123,7 +123,7 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="about section">
+      <section className="about section section-bg">
         <div className="container">
           <div className="about-content grid grid-2">
             <div className="about-text">
@@ -169,7 +169,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="cta section section-bg">
+      <section className="cta section">
         <div className="container">
           <div className="cta-content">
             <h2>Ready to Transform Your Business?</h2>

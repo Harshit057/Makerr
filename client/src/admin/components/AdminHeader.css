@@ -1,18 +1,18 @@
 .admin-header {
-  background: white;
-  border-bottom: 1px solid #e1e5e9;
+  background: var(--white);
+  border-bottom: 1px solid rgba(15, 20, 25, 0.1);
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
 }
 
 .admin-header-left h1 {
   font-size: 1.5rem;
-  color: #333;
+  color: var(--text-dark);
   margin: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -33,7 +33,7 @@
 .admin-avatar {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-gold);
   border-radius: 50%;
   display: flex;
   align-items: center;

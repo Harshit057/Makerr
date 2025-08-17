@@ -1,7 +1,18 @@
 .footer {
-  background: var(--text-dark);
+  background: var(--bg-dark);
   color: var(--white);
   padding: 4rem 0 2rem;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-gold);
 }
 
 .footer-content {
@@ -20,7 +31,7 @@
 .footer-logo .logo-text {
   font-size: 2rem;
   font-weight: 900;
-  background: var(--gradient);
+  background: var(--gradient-gold);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -50,11 +61,35 @@
   border-radius: 50%;
   text-decoration: none;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-gold);
+  transform: scale(0);
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+}
+
+.social-link:hover::before {
+  transform: scale(1);
 }
 
 .social-link:hover {
-  background: var(--accent-color);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
+}
+
+.social-link i {
+  position: relative;
+  z-index: 1;
 }
 
 .footer-links {

@@ -1,11 +1,11 @@
 .admin-sidebar {
   width: 250px;
-  background: white;
-  border-right: 1px solid #e1e5e9;
+  background: var(--white);
+  border-right: 1px solid rgba(15, 20, 25, 0.1);
   height: 100vh;
   position: sticky;
   top: 0;
-  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0 8px rgba(15, 20, 25, 0.1);
 }
 
 .sidebar-nav {
@@ -32,25 +32,43 @@
   width: 100%;
   text-align: left;
   text-decoration: none;
-  color: #666;
-  transition: all 0.2s ease;
+  color: var(--text-light);
+  transition: all 0.3s ease;
   border-left: 3px solid transparent;
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.1));
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-link:hover::before {
+  transform: translateX(0);
 }
 
 .sidebar-link:hover {
-  background: #f8f9fa;
-  color: #333;
+  background: var(--bg-light);
+  color: var(--text-dark);
 }
 
 .sidebar-link.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient);
   background-size: 200% 100%;
   background-position: right bottom;
   color: white;
-  border-left-color: #667eea;
+  border-left-color: var(--accent-color);
 }
 
 .sidebar-icon {

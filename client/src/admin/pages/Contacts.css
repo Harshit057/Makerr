@@ -17,7 +17,7 @@
 }
 
 .contact-item.quote-request {
-  border-left: 4px solid #2563eb;
+  border-left: 4px solid var(--primary-color);
   background: #f8faff;
 }
 
@@ -61,7 +61,7 @@
 
 .status-completed {
   background: #dbeafe;
-  color: #1e40af;
+  color: var(--primary-color);
 }
 
 .contact-details {
@@ -80,7 +80,7 @@
 }
 
 .quote-badge {
-  background: #2563eb;
+  background: var(--primary-color);
   color: white;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
@@ -138,12 +138,12 @@
 }
 
 .btn-primary {
-  background: #2563eb;
+  background: var(--primary-color);
   color: white;
 }
 
 .btn-primary:hover {
-  background: #1d4ed8;
+  background: var(--secondary-color);
 }
 
 .btn-secondary {
