@@ -79,6 +79,23 @@
   color: var(--white);
 }
 
+/* Benefit Card Color Variations */
+.benefit-card:nth-child(4n+1) .benefit-icon {
+  background: var(--gradient);
+}
+
+.benefit-card:nth-child(4n+2) .benefit-icon {
+  background: var(--gradient-gold);
+}
+
+.benefit-card:nth-child(4n+3) .benefit-icon {
+  background: var(--gradient-purple);
+}
+
+.benefit-card:nth-child(4n+4) .benefit-icon {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
 .benefit-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;

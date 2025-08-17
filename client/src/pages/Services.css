@@ -133,6 +133,23 @@
   font-size: 1.5rem;
 }
 
+/* Service Card Color Variations */
+.service-card:nth-child(4n+1) .service-icon {
+  background: var(--gradient);
+}
+
+.service-card:nth-child(4n+2) .service-icon {
+  background: var(--gradient-gold);
+}
+
+.service-card:nth-child(4n+3) .service-icon {
+  background: var(--gradient-purple);
+}
+
+.service-card:nth-child(4n+4) .service-icon {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
 .service-category {
   background: var(--bg-light);
   color: var(--primary-color);

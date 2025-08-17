@@ -161,6 +161,68 @@
   background: var(--white);
   border-radius: var(--border-radius);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(15, 20, 25, 0.08);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.contact-method::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.contact-method:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-method:hover::before {
+  transform: scaleX(1);
+}
+
+/* Contact Method Color Variations */
+.contact-method:nth-child(1) {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(26, 35, 126, 0.1);
+}
+
+.contact-method:nth-child(1)::before {
+  background: var(--gradient);
+}
+
+.contact-method:nth-child(2) {
+  background: linear-gradient(135deg, #fefbef 0%, #ffffff 100%);
+  border: 1px solid rgba(201, 169, 97, 0.1);
+}
+
+.contact-method:nth-child(2)::before {
+  background: var(--gradient-gold);
+}
+
+.contact-method:nth-child(3) {
+  background: linear-gradient(135deg, #faf7ff 0%, #ffffff 100%);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+}
+
+.contact-method:nth-child(3)::before {
+  background: var(--gradient-purple);
+}
+
+.contact-method:nth-child(4) {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+  border: 1px solid rgba(5, 150, 105, 0.1);
+}
+
+.contact-method:nth-child(4)::before {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
 }
 
 .contact-icon {
@@ -174,6 +236,23 @@
   color: var(--white);
   font-size: 1.25rem;
   flex-shrink: 0;
+}
+
+/* Contact Icon Color Variations */
+.contact-method:nth-child(1) .contact-icon {
+  background: var(--gradient);
+}
+
+.contact-method:nth-child(2) .contact-icon {
+  background: var(--gradient-gold);
+}
+
+.contact-method:nth-child(3) .contact-icon {
+  background: var(--gradient-purple);
+}
+
+.contact-method:nth-child(4) .contact-icon {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
 }
 
 .contact-details h3 {
@@ -190,10 +269,35 @@
 
 .social-section {
   padding: 1.5rem;
-  background: var(--white);
+  background: linear-gradient(135deg, #faf7ff 0%, #ffffff 100%);
   border-radius: var(--border-radius);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   text-align: center;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.social-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-purple);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.social-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.1);
+}
+
+.social-section:hover::before {
+  transform: scaleX(1);
 }
 
 .social-section h3 {

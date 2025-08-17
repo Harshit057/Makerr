@@ -129,6 +129,23 @@
   font-size: 2rem;
 }
 
+/* Value Card Color Variations */
+.value-item:nth-child(4n+1) .value-icon {
+  background: var(--gradient);
+}
+
+.value-item:nth-child(4n+2) .value-icon {
+  background: var(--gradient-gold);
+}
+
+.value-item:nth-child(4n+3) .value-icon {
+  background: var(--gradient-purple);
+}
+
+.value-item:nth-child(4n+4) .value-icon {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
 .value-item h3 {
   margin-bottom: 1rem;
   color: var(--text-dark);
