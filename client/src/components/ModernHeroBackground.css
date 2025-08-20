@@ -1,0 +1,88 @@
+.modern-hero-background {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, 
+    rgba(5, 20, 45, 0.95) 0%, 
+    rgba(17, 65, 152, 0.8) 50%, 
+    rgba(5, 20, 45, 0.95) 100%
+  );
+}
+
+.hero-canvas {
+  display: block;
+}
+
+.hero-content-overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(1px);
+}
+
+/* Additional effects for enhanced visual appeal */
+.modern-hero-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(13, 215, 116, 0.1) 0%,
+    rgba(17, 65, 152, 0.05) 50%,
+    transparent 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.modern-hero-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 100px,
+      rgba(255, 255, 255, 0.02) 100px,
+      rgba(255, 255, 255, 0.02) 101px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 100px,
+      rgba(255, 255, 255, 0.02) 100px,
+      rgba(255, 255, 255, 0.02) 101px
+    );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .modern-hero-background::after {
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 50px,
+        rgba(255, 255, 255, 0.02) 50px,
+        rgba(255, 255, 255, 0.02) 51px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 50px,
+        rgba(255, 255, 255, 0.02) 50px,
+        rgba(255, 255, 255, 0.02) 51px
+      );
+  }
+}

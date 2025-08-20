@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import VantaCells from '../components/VantaCells';
+import '../components/VantaCells.css';
 import './Careers.css';
 
 const Careers = () => {
@@ -236,15 +238,17 @@ const Careers = () => {
   return (
     <div className="careers">
       {/* Hero Section */}
-      <section className="careers-hero">
-        <div className="container">
-          <div className="hero-content">
-            <h1>Join Our Team</h1>
-            <p>Build your career with Makerr and be part of an innovative team that's shaping the future of technology.</p>
-            <a href="#openings" className="btn btn-primary">View Open Positions</a>
+      <VantaCells height="60vh" className="careers-hero">
+        <section className="careers-hero-content-wrapper">
+          <div className="container">
+            <div className="hero-content vanta-content">
+              <h1>Join Our Team</h1>
+              <p>Build your career with Makerr and be part of an innovative team that's shaping the future of technology.</p>
+              <a href="#openings" className="btn btn-primary">View Open Positions</a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </VantaCells>
 
       {/* Why Work With Us */}
       <section className="why-work section">

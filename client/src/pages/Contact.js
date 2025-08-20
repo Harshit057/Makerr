@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import VantaCells from '../components/VantaCells';
+import '../components/VantaCells.css';
 import './Contact.css';
 
 const Contact = () => {
@@ -78,17 +80,19 @@ const Contact = () => {
   return (
     <div className="contact-page">
       {/* Hero Section */}
-      <section className="contact-hero">
-        <div className="container">
-          <div className="contact-hero-content">
-            <h1>Get in Touch</h1>
-            <p>
-              Ready to start your project? Have questions about our services? 
-              We'd love to hear from you. Let's discuss how we can help your business grow.
-            </p>
+      <VantaCells height="60vh" className="contact-hero">
+        <section className="contact-hero-content-wrapper">
+          <div className="container">
+            <div className="contact-hero-content vanta-content">
+              <h1>Get in Touch</h1>
+              <p>
+                Ready to start your project? Have questions about our services? 
+                We'd love to hear from you. Let's discuss how we can help your business grow.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </VantaCells>
 
       {/* Contact Content */}
       <section className="contact-content section">

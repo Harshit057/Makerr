@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import VantaCells from '../components/VantaCells';
+import '../components/VantaCells.css';
 import './About.css';
 
 const About = () => {
@@ -57,17 +59,19 @@ const About = () => {
   return (
     <div className="about-page">
       {/* Hero Section */}
-      <section className="about-hero">
-        <div className="container">
-          <div className="about-hero-content">
-            <h1>About Makerr</h1>
-            <p>
-              We are a passionate team of innovators, developers, and strategists 
-              dedicated to transforming businesses through technology and creative solutions.
-            </p>
+      <VantaCells height="60vh" className="about-hero">
+        <section className="about-hero-content-wrapper">
+          <div className="container">
+            <div className="about-hero-content vanta-content">
+              <h1>About Makerr</h1>
+              <p>
+                We are a passionate team of innovators, developers, and strategists 
+                dedicated to transforming businesses through technology and creative solutions.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </VantaCells>
 
       {/* Mission Section */}
       <section className="mission section">

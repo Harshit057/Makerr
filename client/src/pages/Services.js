@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import VantaCells from '../components/VantaCells';
+import '../components/VantaCells.css';
 import './Services.css';
 
 const Services = () => {
@@ -295,17 +297,19 @@ const Services = () => {
   return (
     <div className="services-page">
       {/* Hero Section */}
-      <section className="services-hero">
-        <div className="container">
-          <div className="services-hero-content">
-            <h1>Our Services</h1>
-            <p>
-              Comprehensive software and business solutions tailored to your needs. 
-              From development to marketing, we provide end-to-end services to help your business thrive.
-            </p>
+      <VantaCells height="60vh" className="services-hero">
+        <section className="services-hero-content-wrapper">
+          <div className="container">
+            <div className="services-hero-content vanta-content">
+              <h1>Our Services</h1>
+              <p>
+                Comprehensive software and business solutions tailored to your needs. 
+                From development to marketing, we provide end-to-end services to help your business thrive.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </VantaCells>
 
       {/* Services Section */}
       <section className="services-content section">

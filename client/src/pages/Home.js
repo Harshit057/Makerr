@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import ModernHeroBackground from '../components/ModernHeroBackground';
+import '../components/ModernHeroBackground.css';
 import './Home.css';
 
 const Home = () => {
@@ -28,49 +30,51 @@ const Home = () => {
   return (
     <div className="home">
       {/* Hero Section */}
-      <section className="hero">
-        <div className="container">
-          <div className="hero-content">
-            <div className="hero-text">
-              <h1 className="hero-title">
-                Transform Your Business with 
-                <span className="gradient-text"> Makerr</span>
-              </h1>
-              <p className="hero-subtitle">
-                We provide comprehensive software and business solutions to help your company thrive in the digital age. From app development to cyber security, we've got you covered.
-              </p>
-              <div className="hero-buttons">
-                <Link to="/services" className="btn btn-primary btn-large">
-                  <span>Explore Services</span>
-                </Link>
-                <Link to="/contact" className="btn btn-secondary btn-large">
-                  <span>Get Started</span>
-                </Link>
+      <ModernHeroBackground height="100vh" animationType="geometric">
+        <section className="hero-content-wrapper">
+          <div className="container">
+            <div className="hero-content vanta-content">
+              <div className="hero-text">
+                <h1 className="hero-title">
+                  Transform Your Business with 
+                  <span className="gradient-text"> Makerr</span>
+                </h1>
+                <p className="hero-subtitle">
+                  We provide comprehensive software and business solutions to help your company thrive in the digital age. From app development to cyber security, we've got you covered.
+                </p>
+                <div className="hero-buttons">
+                  <Link to="/services" className="btn btn-primary btn-large">
+                    <span>Explore Services</span>
+                  </Link>
+                  <Link to="/contact" className="btn btn-secondary btn-large">
+                    <span>Get Started</span>
+                  </Link>
+                </div>
               </div>
-            </div>
-            <div className="hero-image">
-              <div className="hero-graphic">
-                <div className="floating-card card-1">
-                  <i className="fas fa-mobile-alt"></i>
-                  <span>App Dev</span>
-                </div>
-                <div className="floating-card card-2">
-                  <i className="fas fa-globe"></i>
-                  <span>Web Dev</span>
-                </div>
-                <div className="floating-card card-3">
-                  <i className="fas fa-shield-alt"></i>
-                  <span>Security</span>
-                </div>
-                <div className="floating-card card-4">
-                  <i className="fas fa-chart-line"></i>
-                  <span>SEO</span>
+              <div className="hero-image">
+                <div className="hero-graphic">
+                  <div className="floating-card card-1">
+                    <i className="fas fa-mobile-alt"></i>
+                    <span>App Dev</span>
+                  </div>
+                  <div className="floating-card card-2">
+                    <i className="fas fa-globe"></i>
+                    <span>Web Dev</span>
+                  </div>
+                  <div className="floating-card card-3">
+                    <i className="fas fa-shield-alt"></i>
+                    <span>Security</span>
+                  </div>
+                  <div className="floating-card card-4">
+                    <i className="fas fa-chart-line"></i>
+                    <span>SEO</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ModernHeroBackground>
 
       {/* Stats Section */}
       <section className="stats section">
