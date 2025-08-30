@@ -46,8 +46,8 @@ const About = () => {
     },
     {
       year: '2025',
-      title: 'Industry Recognition',
-      description: 'Received industry awards for innovation and client satisfaction.'
+      title: 'Startup Journey',
+      description: 'Launched innovative solutions and established a strong foundation in the market.'
     },
     {
       year: '2025',
