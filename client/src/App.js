@@ -9,7 +9,6 @@ import Contact from './pages/Contact';
 import Careers from './pages/Careers';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
-import AdminApp from './admin/AdminApp';
 import { CartProvider } from './context/CartContext';
 import './App.css';
 
@@ -19,9 +18,6 @@ function App() {
       <CartProvider>
         <div className="App">
           <Routes>
-            {/* Admin Routes */}
-            <Route path="/admin/*" element={<AdminApp />} />
-            
             {/* Public Routes */}
             <Route path="/*" element={
               <>

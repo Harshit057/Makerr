@@ -39,8 +39,6 @@ mongoose.connection.on('disconnected', () => {
 console.log('🔧 Setting up API routes...');
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/services', require('./routes/services'));
-app.use('/api/admin', require('./routes/admin'));
-app.use('/api/admin/dashboard', require('./routes/dashboard'));
 
 // Serve static files from React app in production
 if (process.env.NODE_ENV === 'production') {

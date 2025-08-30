@@ -69,29 +69,52 @@ router.post('/', async (req, res) => {
       console.log('Contact model not available, skipping database save');
     }
 
-    // Send email notification (optional)
+    // Send email notification
     try {
       let emailSubject = `New Contact Form Submission - ${service}`;
       let emailContent = `
-        <h3>New Contact Form Submission</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-        <p><strong>Company:</strong> ${company || 'Not provided'}</p>
-        <p><strong>Service:</strong> ${service}</p>`;
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+          <h2 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px;">New Contact Form Submission</h2>
+          
+          <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;">
+            <h3 style="color: #2c3e50; margin-top: 0;">Contact Information</h3>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+            <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+            <p><strong>Company:</strong> ${company || 'Not provided'}</p>
+            <p><strong>Service Requested:</strong> <span style="background-color: #3498db; color: white; padding: 2px 8px; border-radius: 3px;">${service}</span></p>
+          </div>`;
 
       if (isQuoteRequest && requestedServices && requestedServices.length > 0) {
-        emailSubject = `New Quote Request - ${requestedServices.length} Services`;
+        emailSubject = `🎯 New Quote Request - ${requestedServices.length} Service${requestedServices.length > 1 ? 's' : ''}`;
         emailContent += `
-        <p><strong>Quote Request - Services:</strong></p>
-        <ul>
-          ${requestedServices.map(srv => `<li>${srv.title} (${srv.category})</li>`).join('')}
-        </ul>`;
+          <div style="background-color: #e8f5e8; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #27ae60;">
+            <h3 style="color: #27ae60; margin-top: 0;">📋 Quote Request Details</h3>
+            <p><strong>Services Requested:</strong></p>
+            <ul style="list-style-type: none; padding-left: 0;">
+              ${requestedServices.map(srv => `
+                <li style="background-color: #fff; margin: 5px 0; padding: 10px; border-radius: 3px; border-left: 3px solid #27ae60;">
+                  <strong>${srv.title}</strong><br/>
+                  <small style="color: #666;">Category: ${srv.category}</small>
+                </li>
+              `).join('')}
+            </ul>
+          </div>`;
       }
 
       emailContent += `
-        <p><strong>Message:</strong></p>
-        <p>${finalMessage}</p>
+          <div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #ffc107;">
+            <h3 style="color: #856404; margin-top: 0;">💬 Message</h3>
+            <p style="white-space: pre-wrap; background-color: white; padding: 10px; border-radius: 3px; border: 1px solid #dee2e6;">${finalMessage}</p>
+          </div>
+          
+          <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;">
+            <p style="color: #6c757d; font-size: 12px;">
+              This email was sent from the Makerr contact form.<br/>
+              Please respond to the customer at: <a href="mailto:${email}">${email}</a>
+            </p>
+          </div>
+        </div>
       `;
 
       // Only try to send email if credentials are available
@@ -99,16 +122,18 @@ router.post('/', async (req, res) => {
         const mailOptions = {
           from: process.env.EMAIL_USER,
           to: process.env.EMAIL_USER,
+          replyTo: email,
           subject: emailSubject,
           html: emailContent
         };
 
         await transporter.sendMail(mailOptions);
+        console.log('✅ Email notification sent successfully');
       } else {
-        console.log('Email credentials not configured, skipping email send');
+        console.log('⚠️ Email credentials not configured, skipping email send');
       }
     } catch (emailError) {
-      console.log('Email sending failed:', emailError.message);
+      console.log('❌ Email sending failed:', emailError.message);
       // Don't fail the request if email fails
     }
 
@@ -139,21 +164,6 @@ router.post('/', async (req, res) => {
         service: req.body.service,
         isQuoteRequest: req.body.isQuoteRequest
       }
-    });
-  }
-});
-
-// @route   GET /api/contact
-// @desc    Get all contacts (admin only)
-// @access  Private
-router.get('/', async (req, res) => {
-  try {
-    const contacts = await Contact.find().sort({ createdAt: -1 });
-    res.json(contacts);
-  } catch (error) {
-    console.error('Get contacts error:', error);
-    res.status(500).json({ 
-      message: 'Server error' 
     });
   }
 });

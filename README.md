@@ -128,8 +128,7 @@ makerr/
 ## 📱 API Endpoints
 
 ### Contact Routes
-- `POST /api/contact` - Submit contact form
-- `GET /api/contact` - Get all contacts (admin)
+- `POST /api/contact` - Submit contact form with email notification
 
 ### Services Routes
 - `GET /api/services` - Get all services
@@ -147,12 +146,26 @@ makerr/
 
 ## 📧 Email Configuration
 
-The contact form supports email notifications. To enable:
+The contact form automatically sends email notifications for all submissions including quote requests. To enable:
 
-1. Use Gmail or another SMTP service
-2. For Gmail, enable 2-factor authentication
-3. Generate an App Password
-4. Update EMAIL_USER and EMAIL_PASS in .env
+1. **Gmail Setup (Recommended):**
+   - Enable 2-factor authentication on your Gmail account
+   - Generate an App Password (not your regular password)
+   - Update `.env` file with your credentials
+
+2. **Environment Variables:**
+   ```bash
+   EMAIL_USER=your-email@gmail.com
+   EMAIL_PASS=your-app-password
+   ```
+
+3. **Features:**
+   - Professional HTML email templates
+   - Automatic quote request detection
+   - Service-specific categorization
+   - Customer reply-to functionality
+
+**Note:** All contact form submissions and quote requests from the cart will be sent directly to your configured email address.
 
 ## 🌐 Deployment
 
@@ -196,13 +209,14 @@ For support and inquiries:
 
 ## 🚀 Future Enhancements
 
-- User authentication and admin dashboard
+- Enhanced email templates and notifications
 - Blog/News section
 - Portfolio/Case studies
 - Client testimonials
 - Live chat integration
 - Payment gateway integration
 - Multi-language support
+- Advanced analytics and reporting
 
 ---
 

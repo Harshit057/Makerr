@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../middleware/auth');
 
 // Try to import Service model, but handle errors gracefully
 let Service;
@@ -219,119 +218,6 @@ router.get('/:id', async (req, res) => {
     res.status(500).json({ 
       message: 'Server error' 
     });
-  }
-});
-
-// ADMIN ROUTES
-
-// @route   GET /api/services/admin/all
-// @desc    Get all services (including inactive) for admin
-// @access  Private
-router.get('/admin/all', auth, async (req, res) => {
-  try {
-    const services = await Service.find({}).sort({ order: 1, createdAt: 1 });
-    
-    res.json({
-      services,
-      total: services.length
-    });
-  } catch (error) {
-    console.error('Get admin services error:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
-
-// @route   POST /api/services/admin
-// @desc    Create new service
-// @access  Private
-router.post('/admin', auth, async (req, res) => {
-  try {
-    const { title, description, features, icon, category, price, order } = req.body;
-
-    // Validate required fields
-    if (!title || !description || !features || !icon || !category) {
-      return res.status(400).json({ 
-        message: 'Please provide all required fields' 
-      });
-    }
-
-    const service = new Service({
-      title,
-      description,
-      features,
-      icon,
-      category,
-      price,
-      order: order || 0
-    });
-
-    await service.save();
-
-    res.status(201).json({
-      message: 'Service created successfully',
-      service
-    });
-
-  } catch (error) {
-    console.error('Create service error:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
-
-// @route   PUT /api/services/admin/:id
-// @desc    Update service
-// @access  Private
-router.put('/admin/:id', auth, async (req, res) => {
-  try {
-    const { title, description, features, icon, category, price, isActive, order } = req.body;
-
-    const service = await Service.findByIdAndUpdate(
-      req.params.id,
-      {
-        title,
-        description,
-        features,
-        icon,
-        category,
-        price,
-        isActive,
-        order,
-        updatedAt: Date.now()
-      },
-      { new: true }
-    );
-
-    if (!service) {
-      return res.status(404).json({ message: 'Service not found' });
-    }
-
-    res.json({
-      message: 'Service updated successfully',
-      service
-    });
-
-  } catch (error) {
-    console.error('Update service error:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
-
-// @route   DELETE /api/services/admin/:id
-// @desc    Delete service
-// @access  Private
-router.delete('/admin/:id', auth, async (req, res) => {
-  try {
-    const service = await Service.findByIdAndDelete(req.params.id);
-
-    if (!service) {
-      return res.status(404).json({ message: 'Service not found' });
-    }
-
-    res.json({ message: 'Service deleted successfully' });
-
-  } catch (error) {
-    console.error('Delete service error:', error);
-    res.status(500).json({ message: 'Server error' });
   }
 });
 
