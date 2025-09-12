@@ -13,15 +13,26 @@ const Services = () => {
   const [showAll, setShowAll] = useState(false);
   const [servicesPerRow] = useState(3); // Number of services per row
   const [initialRows] = useState(2); // Number of rows to show initially
+  const [isShuffled, setIsShuffled] = useState(true); // Track if services are shuffled
   
   const { addService, removeService, isServiceInCart } = useCart();
+
+  // Utility function to shuffle array
+  const shuffleArray = (array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
 
   const filters = [
     { id: 'all', label: 'All Services' },
     { id: 'development', label: 'Development' },
     { id: 'marketing', label: 'Marketing' },
     { id: 'design', label: 'Design' },
-    { id: 'security', label: 'Security' }
+    { id: 'creator', label: 'Creator Services' }
   ];
 
   const fetchServices = async () => {
@@ -129,51 +140,75 @@ const Services = () => {
           icon: "api"
         },
 
-        // Security Services
+        // Creator Services
         {
           id: 13,
-          title: "Cybersecurity Audit",
-          category: "security",
-          description: "Comprehensive security assessments to identify vulnerabilities and risks.",
-          features: ["Vulnerability scanning", "Risk assessment", "Security recommendations", "Compliance check"],
-          icon: "security"
+          title: "Script Writing",
+          category: "creator",
+          description: "Professional script writing for YouTube videos, podcasts, and social media content.",
+          features: ["Engaging storylines", "Hook-driven openings", "Call-to-action integration", "Platform optimization"],
+          icon: "edit"
         },
         {
           id: 14,
-          title: "Firewall Configuration",
-          category: "security",
-          description: "Professional firewall setup and management for network protection.",
-          features: ["Network security", "Traffic monitoring", "Intrusion detection", "24/7 monitoring"],
-          icon: "shield"
+          title: "Sponsor Finding",
+          category: "creator",
+          description: "Connect with relevant brands and sponsors that align with your content and audience.",
+          features: ["Brand matching", "Pitch preparation", "Contract negotiation", "Relationship management"],
+          icon: "business_center"
         },
         {
           id: 15,
-          title: "Penetration Testing",
-          category: "security",
-          description: "Ethical hacking services to test your system's security defenses.",
-          features: ["Security testing", "Vulnerability reports", "Remediation guidance", "Compliance support"],
-          icon: "bug_report"
+          title: "Content Strategy",
+          category: "creator",
+          description: "Comprehensive content planning to maximize engagement and growth across platforms.",
+          features: ["Content calendar", "Trend analysis", "Audience insights", "Growth strategies"],
+          icon: "timeline"
         },
         {
           id: 16,
-          title: "Data Encryption",
-          category: "security",
-          description: "Advanced encryption solutions to protect sensitive data and communications.",
-          features: ["End-to-end encryption", "Data protection", "Secure transmission", "Key management"],
-          icon: "lock"
+          title: "Thumbnail & Graphics",
+          category: "creator",
+          description: "Eye-catching thumbnails and graphics optimized for maximum click-through rates.",
+          features: ["A/B tested designs", "Platform specific sizing", "Brand consistency", "High CTR optimization"],
+          icon: "image"
         },
         {
           id: 17,
-          title: "Security Training",
-          category: "security",
-          description: "Employee security awareness training and best practices education.",
-          features: ["Security awareness", "Phishing simulation", "Best practices", "Compliance training"],
-          icon: "school"
+          title: "Video Editing",
+          category: "creator",
+          description: "Professional video editing services tailored for content creators and influencers.",
+          features: ["Fast turnaround", "Engaging cuts", "Sound design", "Color grading"],
+          icon: "movie_creation"
+        },
+        {
+          id: 18,
+          title: "Influencer Marketing",
+          category: "creator",
+          description: "End-to-end influencer marketing campaigns to grow your brand partnerships.",
+          features: ["Campaign strategy", "Brand outreach", "Performance tracking", "ROI optimization"],
+          icon: "trending_up"
+        },
+        {
+          id: 19,
+          title: "Channel/Profile Optimization",
+          category: "creator",
+          description: "Optimize your social media profiles and channels for maximum discoverability and growth.",
+          features: ["SEO optimization", "Bio optimization", "Channel art design", "Analytics setup"],
+          icon: "tune"
+        },
+        {
+          id: 20,
+          title: "Audience Analytics",
+          category: "creator",
+          description: "Deep audience analysis to understand your viewers and optimize content strategy.",
+          features: ["Demographic analysis", "Engagement patterns", "Growth metrics", "Content performance"],
+          icon: "analytics"
         },
 
         // Marketing Services
         {
-          id: 18,
+          id: 21,
           title: "Digital Marketing Strategy",
           category: "marketing",
           description: "Comprehensive digital marketing strategies to grow your online presence.",
@@ -181,7 +216,7 @@ const Services = () => {
           icon: "trending_up"
         },
         {
-          id: 19,
+          id: 22,
           title: "Social Media Marketing",
           category: "marketing",
           description: "Engaging social media campaigns across all major platforms.",
@@ -189,7 +224,7 @@ const Services = () => {
           icon: "share"
         },
         {
-          id: 20,
+          id: 23,
           title: "Search Engine Optimization",
           category: "marketing",
           description: "Improve your website's visibility and ranking in search engine results.",
@@ -197,7 +232,7 @@ const Services = () => {
           icon: "search"
         },
         {
-          id: 21,
+          id: 24,
           title: "Content Marketing",
           category: "marketing",
           description: "Strategic content creation to attract and engage your target audience.",
@@ -205,7 +240,7 @@ const Services = () => {
           icon: "article"
         },
         {
-          id: 22,
+          id: 25,
           title: "Email Marketing",
           category: "marketing",
           description: "Targeted email campaigns to nurture leads and retain customers.",
@@ -213,20 +248,12 @@ const Services = () => {
           icon: "email"
         },
         {
-          id: 23,
+          id: 26,
           title: "Pay-Per-Click Advertising",
           category: "marketing",
           description: "Targeted PPC campaigns on Google Ads, Facebook, and other platforms.",
           features: ["Campaign setup", "Keyword bidding", "Ad optimization", "Conversion tracking"],
           icon: "ads_click"
-        },
-        {
-          id: 24,
-          title: "Influencer Marketing",
-          category: "marketing",
-          description: "Connect with influencers to expand your reach and build brand awareness.",
-          features: ["Influencer research", "Campaign management", "Content collaboration", "Performance metrics"],
-          icon: "person_add"
         }
       ];
 
@@ -239,14 +266,20 @@ const Services = () => {
   };
 
   const filterServices = useCallback(() => {
+    let filtered;
     if (activeFilter === 'all') {
-      setFilteredServices(services);
+      // For 'all' services, shuffle them to show variety
+      filtered = isShuffled ? shuffleArray(services) : services;
+      setIsShuffled(true); // Mark as shuffled when showing all
     } else {
-      setFilteredServices(services.filter(service => service.category === activeFilter));
+      // For specific categories, don't shuffle
+      filtered = services.filter(service => service.category === activeFilter);
+      setIsShuffled(false); // Mark as not shuffled for specific categories
     }
+    setFilteredServices(filtered);
     // Reset show all when changing filters
     setShowAll(false);
-  }, [activeFilter, services]);
+  }, [activeFilter, services, isShuffled]);
 
   // Calculate displayed services based on showAll state
   const getDisplayedServices = () => {
@@ -274,6 +307,10 @@ const Services = () => {
 
   const handleFilterChange = (filterId) => {
     setActiveFilter(filterId);
+    // Trigger re-shuffle when switching to 'all' services
+    if (filterId === 'all') {
+      setIsShuffled(true);
+    }
   };
 
   const handleAddToCart = (service) => {
@@ -303,8 +340,8 @@ const Services = () => {
             <div className="services-hero-content vanta-content">
               <h1>Our Services</h1>
               <p>
-                Comprehensive software and business solutions tailored to your needs. 
-                From development to marketing, we provide end-to-end services to help your business thrive.
+                Comprehensive solutions for creators, influencers, and businesses. 
+                From content creation to development and marketing, we provide end-to-end services to help you grow and thrive.
               </p>
             </div>
           </div>

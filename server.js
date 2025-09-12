@@ -8,7 +8,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+  origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173'],
   credentials: true
 }));
 app.use(express.json());
@@ -40,12 +40,12 @@ console.log('🔧 Setting up API routes...');
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/services', require('./routes/services'));
 
-// Serve static files from React app in production
+// Serve static files from the new Vue app in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
+  app.use(express.static(path.join(__dirname, 'new-frontend/dist')));
   
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'new-frontend/dist', 'index.html'));
   });
 }
 

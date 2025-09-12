@@ -5,11 +5,13 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "client": "cd client && npm start",
-    "client-install": "cd client && npm install",
+    "client": "cd new-frontend && npm run dev",
+    "client-install": "cd new-frontend && npm install",
+    "client-old": "cd client && npm start",
     "server": "nodemon server.js",
     "dev-full": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "cd client && npm run build",
+    "build": "cd new-frontend && npm run build",
+    "build-old": "cd client && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
