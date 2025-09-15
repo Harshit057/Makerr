@@ -8,7 +8,14 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173'],
+  origin: [
+    'http://localhost:3000', 
+    'http://127.0.0.1:3000', 
+    'http://localhost:5173', 
+    'http://127.0.0.1:5173',
+    'https://makerr-harshit057.vercel.app', // Replace with your actual Vercel domain
+    /\.vercel\.app$/ // Allow all Vercel preview deployments
+  ],
   credentials: true
 }));
 app.use(express.json());
@@ -40,12 +47,12 @@ console.log('🔧 Setting up API routes...');
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/services', require('./routes/services'));
 
-// Serve static files from the new Vue app in production
+// Serve static files from the React client build in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'new-frontend/dist')));
+  app.use(express.static(path.join(__dirname, 'client/build')));
   
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'new-frontend/dist', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
 
