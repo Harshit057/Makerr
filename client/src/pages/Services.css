@@ -28,16 +28,20 @@
 }
 
 .services-hero-content h1 {
-  font-size: 3rem;
+   font-size: 3rem;
   margin-bottom: 1.5rem;
   font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+  text-align: center;
 }
 
 .services-hero-content p {
   font-size: 1.25rem;
   max-width: 600px;
   margin: 0 auto;
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
+  text-align: center;
 }
 
 /* Loading */
@@ -202,12 +206,13 @@
 
 .service-actions {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.75rem;
   margin-top: auto;
 }
 
 .service-actions .btn {
-  flex: 1;
+  width: 100%;
   text-align: center;
   padding: 0.75rem 1rem;
 }
@@ -386,10 +391,6 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-  }
-  
-  .service-actions {
-    flex-direction: column;
   }
   
   .process-steps {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import VantaCells from '../components/VantaCells';
-import '../components/VantaCells.css';
+import ModernHeroBackground from '../components/ModernHeroBackground';
+import '../components/ModernHeroBackground.css';
 import './Careers.css';
 
 const Careers = () => {
@@ -238,7 +238,7 @@ const Careers = () => {
   return (
     <div className="careers">
       {/* Hero Section */}
-      <VantaCells height="60vh" className="careers-hero">
+      <ModernHeroBackground height="60vh" animationType="geometric">
         <section className="careers-hero-content-wrapper">
           <div className="container">
             <div className="hero-content vanta-content">
@@ -248,7 +248,7 @@ const Careers = () => {
             </div>
           </div>
         </section>
-      </VantaCells>
+      </ModernHeroBackground>
 
       {/* Why Work With Us */}
       <section className="why-work section">

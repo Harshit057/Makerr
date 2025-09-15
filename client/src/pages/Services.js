@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import VantaCells from '../components/VantaCells';
-import '../components/VantaCells.css';
+import ModernHeroBackground from '../components/ModernHeroBackground';
+import '../components/ModernHeroBackground.css';
 import './Services.css';
 
 const Services = () => {
@@ -334,7 +334,7 @@ const Services = () => {
   return (
     <div className="services-page">
       {/* Hero Section */}
-      <VantaCells height="60vh" className="services-hero">
+      <ModernHeroBackground height="60vh" animationType="geometric">
         <section className="services-hero-content-wrapper">
           <div className="container">
             <div className="services-hero-content vanta-content">
@@ -346,7 +346,7 @@ const Services = () => {
             </div>
           </div>
         </section>
-      </VantaCells>
+      </ModernHeroBackground>
 
       {/* Services Section */}
       <section className="services-content section">

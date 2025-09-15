@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ModernHeroBackground from '../components/ModernHeroBackground';
+import TechMarquee from '../components/TechMarquee';
 import '../components/ModernHeroBackground.css';
 import './Home.css';
 
 const Home = () => {
   const [services, setServices] = useState([]);
-  const [stats] = useState([
-    { number: '50+', label: 'Projects Completed' },
-    { number: '25+', label: 'Happy Clients' },
-    { number: '3+', label: 'Years Experience' },
-    { number: '24/7', label: 'Support' }
-  ]);
 
   useEffect(() => {
     fetchServices();
@@ -76,19 +71,8 @@ const Home = () => {
         </section>
       </ModernHeroBackground>
 
-      {/* Stats Section */}
-      <section className="stats section">
-        <div className="container">
-          <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className="stat-item">
-                <div className="stat-number">{stat.number}</div>
-                <div className="stat-label">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Tech Marquee Section */}
+      <TechMarquee />
 
       {/* Services Section */}
       <section className="services section section-bg-gradient">

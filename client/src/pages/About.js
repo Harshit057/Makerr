@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import VantaCells from '../components/VantaCells';
-import '../components/VantaCells.css';
+import ModernHeroBackground from '../components/ModernHeroBackground';
+import '../components/ModernHeroBackground.css';
 import './About.css';
 
 const About = () => {
@@ -59,7 +59,7 @@ const About = () => {
   return (
     <div className="about-page">
       {/* Hero Section */}
-      <VantaCells height="60vh" className="about-hero">
+      <ModernHeroBackground height="60vh" animationType="geometric">
         <section className="about-hero-content-wrapper">
           <div className="container">
             <div className="about-hero-content vanta-content">
@@ -71,7 +71,7 @@ const About = () => {
             </div>
           </div>
         </section>
-      </VantaCells>
+      </ModernHeroBackground>
 
       {/* Mission Section */}
       <section className="mission section">

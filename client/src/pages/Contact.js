@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import VantaCells from '../components/VantaCells';
-import '../components/VantaCells.css';
+import ModernHeroBackground from '../components/ModernHeroBackground';
+import '../components/ModernHeroBackground.css';
 import './Contact.css';
 
 const Contact = () => {
@@ -80,7 +80,7 @@ const Contact = () => {
   return (
     <div className="contact-page">
       {/* Hero Section */}
-      <VantaCells height="60vh" className="contact-hero">
+      <ModernHeroBackground height="60vh" animationType="geometric">
         <section className="contact-hero-content-wrapper">
           <div className="container">
             <div className="contact-hero-content vanta-content">
@@ -92,7 +92,7 @@ const Contact = () => {
             </div>
           </div>
         </section>
-      </VantaCells>
+      </ModernHeroBackground>
 
       {/* Contact Content */}
       <section className="contact-content section">
