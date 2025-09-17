@@ -1,7 +1,8 @@
 .tech-marquee-section {
   padding: 80px 0;
   background: linear-gradient(135deg, #cae4e4 0%, #2e89ce 100%);
-  overflow: hidden;
+  overflow-x: hidden; /* Only hide horizontal overflow for marquee effect */
+  overflow-y: visible; /* Allow vertical overflow for hover effects */
   position: relative;
 }
 
@@ -46,9 +47,21 @@
 
 .marquee-container {
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   margin-bottom: 30px;
   position: relative;
+  padding: 20px 0; /* Add padding to prevent clipping */
+  /* Add edge fade effect without clipping hover elements */
+  mask: linear-gradient(90deg, 
+    transparent 0%, 
+    black 5%, 
+    black 95%, 
+    transparent 100%);
+  -webkit-mask: linear-gradient(90deg, 
+    transparent 0%, 
+    black 5%, 
+    black 95%, 
+    transparent 100%);
 }
 
 .marquee-container:last-child {
@@ -99,8 +112,9 @@
     0 0 0 1px rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
+  overflow: visible;   /* ✅ Allow pop-up without cutting */
   backdrop-filter: blur(10px);
+  z-index: 0;          /* Default stacking */
 }
 
 .tech-item::before {
@@ -123,6 +137,7 @@
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.3),
     0 0 0 2px var(--tech-color, #667eea);
+  z-index: 10; /* Ensure hovered icon appears above others */
 }
 
 .tech-item:hover::before {

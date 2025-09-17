@@ -1,27 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import ModernHeroBackground from '../components/ModernHeroBackground';
 import TechMarquee from '../components/TechMarquee';
+import ServiceCarousel3D from '../components/ServiceCarousel3D';
+import LaptopModel3D from '../components/LaptopModel3D';
+import OfficeDesk3D from '../components/OfficeDesk3D';
 import '../components/ModernHeroBackground.css';
 import './Home.css';
 
 const Home = () => {
-  const [services, setServices] = useState([]);
-
-  useEffect(() => {
-    fetchServices();
-  }, []);
-
-  const fetchServices = async () => {
-    try {
-      const response = await fetch('/api/services');
-      const data = await response.json();
-      setServices(data.services.slice(0, 6)); // Show first 6 services
-    } catch (error) {
-      console.error('Error fetching services:', error);
-    }
-  };
-
   return (
     <div className="home">
       {/* Hero Section */}
@@ -47,23 +34,8 @@ const Home = () => {
                 </div>
               </div>
               <div className="hero-image">
-                <div className="hero-graphic">
-                  <div className="floating-card card-1">
-                    <i className="fas fa-mobile-alt"></i>
-                    <span>App Dev</span>
-                  </div>
-                  <div className="floating-card card-2">
-                    <i className="fas fa-globe"></i>
-                    <span>Web Dev</span>
-                  </div>
-                  <div className="floating-card card-3">
-                    <i className="fas fa-shield-alt"></i>
-                    <span>Security</span>
-                  </div>
-                  <div className="floating-card card-4">
-                    <i className="fas fa-chart-line"></i>
-                    <span>SEO</span>
-                  </div>
+                <div className="hero-3d-model">
+                  <OfficeDesk3D />
                 </div>
               </div>
             </div>
@@ -83,24 +55,26 @@ const Home = () => {
               We offer a comprehensive range of services to help your business succeed in the digital world
             </p>
           </div>
-          <div className="services-grid grid grid-3">
-            {services.map((service) => (
-              <div key={service.id} className="service-card card">
-                <div className="service-icon">
-                  <i className={`material-icons`}>{service.icon}</i>
-                </div>
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p>
-                <ul className="service-features">
-                  {service.features.slice(0, 3).map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                  ))}
-                </ul>
-                <Link to="/contact" className="service-link">
-                  Learn More <i className="fas fa-arrow-right"></i>
+          <div className="services-carousel-wrapper">
+            <div className="cta-banner cta-banner-left">
+              <div className="cta-banner-content">
+                <h3>Need a Website?</h3>
+                <p>Get a professional, responsive website that drives results</p>
+                <Link to="/contact" className="btn btn-outline-primary">
+                  Get Quote
                 </Link>
               </div>
-            ))}
+            </div>
+            <ServiceCarousel3D />
+            <div className="cta-banner cta-banner-right">
+              <div className="cta-banner-content">
+                <h3>Looking for an App?</h3>
+                <p>Build powerful mobile apps for iOS and Android platforms</p>
+                <Link to="/contact" className="btn btn-outline-primary">
+                  Get Quote
+                </Link>
+              </div>
+            </div>
           </div>
           <div className="services-cta">
             <Link to="/services" className="btn btn-primary">
@@ -113,8 +87,8 @@ const Home = () => {
       {/* About Section */}
       <section className="about section section-bg">
         <div className="container">
-          <div className="about-content grid grid-2">
-            <div className="about-text">
+          <div className="about-content flex items-center justify-between">
+            <div className="about-text w-1/2">
               <h2>Why Choose Makerr?</h2>
               <p>
                 At Makerr, we combine technical expertise with business acumen to deliver solutions that drive real results. Our team of experienced professionals is committed to helping your business grow and succeed.
@@ -146,11 +120,8 @@ const Home = () => {
                 Learn More About Us
               </Link>
             </div>
-            <div className="about-image">
-              <div className="image-placeholder">
-                <i className="fas fa-users"></i>
-                <span>Professional Team</span>
-              </div>
+            <div className="about-model w-1/2 h-[400px]">
+              <LaptopModel3D />
             </div>
           </div>
         </div>

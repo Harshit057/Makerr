@@ -1,0 +1,65 @@
+.office-desk-container {
+  width: 20%;
+  height: 170%;
+  min-height: 600px;
+  flex: 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* Remove all card-like styling */
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 3;
+  overflow: visible;
+  margin-left: 60px;
+}
+
+.office-desk-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.office-desk-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 0.9rem;
+  z-index: 1;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top: 3px solid var(--white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .office-desk-container {
+    height: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .office-desk-container {
+    height: 100%;
+  }
+}
