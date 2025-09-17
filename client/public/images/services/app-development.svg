@@ -1,0 +1,44 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="appGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea"/>
+      <stop offset="100%" stop-color="#764ba2"/>
+    </linearGradient>
+    <linearGradient id="screenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4facfe"/>
+      <stop offset="100%" stop-color="#00f2fe"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#appGradient)"/>
+  
+  <!-- Phone mockup -->
+  <rect x="150" y="50" width="100" height="180" rx="20" fill="#2c3e50"/>
+  <rect x="155" y="65" width="90" height="150" rx="10" fill="url(#screenGradient)"/>
+  
+  <!-- App interface elements -->
+  <rect x="165" y="75" width="70" height="8" rx="4" fill="#ffffff" opacity="0.9"/>
+  <rect x="165" y="90" width="50" height="6" rx="3" fill="#ffffff" opacity="0.7"/>
+  
+  <!-- App icons -->
+  <circle cx="175" cy="115" r="8" fill="#ffffff" opacity="0.8"/>
+  <circle cx="195" cy="115" r="8" fill="#ffffff" opacity="0.8"/>
+  <circle cx="215" cy="115" r="8" fill="#ffffff" opacity="0.8"/>
+  
+  <circle cx="175" cy="135" r="8" fill="#ffffff" opacity="0.8"/>
+  <circle cx="195" cy="135" r="8" fill="#ffffff" opacity="0.8"/>
+  <circle cx="215" cy="135" r="8" fill="#ffffff" opacity="0.8"/>
+  
+  <!-- Bottom navigation -->
+  <rect x="165" y="190" width="70" height="15" rx="7" fill="#ffffff" opacity="0.3"/>
+  
+  <!-- Floating elements -->
+  <circle cx="100" cy="100" r="15" fill="#ffd700" opacity="0.8"/>
+  <polygon points="320,80 335,95 320,110 305,95" fill="#ff6b6b" opacity="0.8"/>
+  <rect x="300" y="180" width="25" height="25" rx="5" fill="#4ecdc4" opacity="0.8"/>
+  
+  <!-- Code brackets -->
+  <text x="50" y="200" font-family="monospace" font-size="24" fill="#ffffff" opacity="0.6">&lt;/&gt;</text>
+  <text x="320" y="50" font-family="monospace" font-size="20" fill="#ffffff" opacity="0.6">{}</text>
+</svg>

@@ -1,0 +1,67 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="designGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea"/>
+      <stop offset="100%" stop-color="#764ba2"/>
+    </linearGradient>
+    <linearGradient id="posterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f093fb"/>
+      <stop offset="100%" stop-color="#f5576c"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#designGradient)"/>
+  
+  <!-- Main poster/canvas -->
+  <rect x="100" y="50" width="200" height="250" rx="10" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+  
+  <!-- Poster content -->
+  <rect x="120" y="70" width="160" height="80" rx="5" fill="url(#posterGradient)"/>
+  <text x="200" y="120" font-family="Arial" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">DESIGN</text>
+  
+  <!-- Design elements on poster -->
+  <circle cx="140" cy="180" r="15" fill="#ffd700"/>
+  <rect x="170" y="165" width="30" height="30" rx="5" fill="#4ecdc4"/>
+  <polygon points="220,165 235,180 220,195 205,180" fill="#ff6b6b"/>
+  <rect x="250" y="170" width="20" height="20" rx="10" fill="#9b59b6"/>
+  
+  <!-- Text lines on poster -->
+  <rect x="120" y="220" width="100" height="6" rx="3" fill="#333"/>
+  <rect x="120" y="235" width="80" height="6" rx="3" fill="#666"/>
+  <rect x="120" y="250" width="120" height="6" rx="3" fill="#333"/>
+  <rect x="120" y="265" width="90" height="6" rx="3" fill="#666"/>
+  
+  <!-- Design tools floating around -->
+  <!-- Pencil -->
+  <rect x="50" y="100" width="4" height="40" rx="2" fill="#ffc107"/>
+  <polygon points="50,95 54,95 52,85" fill="#ff6b6b"/>
+  <rect x="51" y="142" width="2" height="8" rx="1" fill="#333"/>
+  
+  <!-- Brush -->
+  <rect x="340" y="80" width="6" height="30" rx="3" fill="#8b4513"/>
+  <ellipse cx="343" cy="75" rx="4" ry="8" fill="#ff6b6b"/>
+  
+  <!-- Color palette -->
+  <rect x="320" y="180" width="60" height="40" rx="5" fill="#ffffff" stroke="#e0e0e0"/>
+  <circle cx="335" cy="190" r="4" fill="#e74c3c"/>
+  <circle cx="350" cy="190" r="4" fill="#3498db"/>
+  <circle cx="365" cy="190" r="4" fill="#2ecc71"/>
+  <circle cx="335" cy="205" r="4" fill="#f39c12"/>
+  <circle cx="350" cy="205" r="4" fill="#9b59b6"/>
+  <circle cx="365" cy="205" r="4" fill="#1abc9c"/>
+  
+  <!-- Ruler -->
+  <rect x="20" y="200" width="60" height="8" rx="4" fill="#95a5a6"/>
+  <line x1="25" y1="200" x2="25" y2="208" stroke="#333" stroke-width="1"/>
+  <line x1="35" y1="200" x2="35" y2="208" stroke="#333" stroke-width="1"/>
+  <line x1="45" y1="200" x2="45" y2="208" stroke="#333" stroke-width="1"/>
+  <line x1="55" y1="200" x2="55" y2="208" stroke="#333" stroke-width="1"/>
+  <line x1="65" y1="200" x2="65" y2="208" stroke="#333" stroke-width="1"/>
+  <line x1="75" y1="200" x2="75" y2="208" stroke="#333" stroke-width="1"/>
+  
+  <!-- Creative elements -->
+  <path d="M50 50 Q75 25 100 50 T150 50" stroke="#ffd700" stroke-width="3" fill="none" opacity="0.7"/>
+  <circle cx="350" cy="50" r="8" fill="#e74c3c" opacity="0.7"/>
+  <rect x="20" y="250" width="15" height="15" rx="3" fill="#3498db" opacity="0.7" transform="rotate(45 27.5 257.5)"/>
+</svg>

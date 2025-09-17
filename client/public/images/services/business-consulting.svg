@@ -1,0 +1,89 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="consultingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea"/>
+      <stop offset="100%" stop-color="#764ba2"/>
+    </linearGradient>
+    <linearGradient id="chartBgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a8edea"/>
+      <stop offset="100%" stop-color="#fed6e3"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#consultingGradient)"/>
+  
+  <!-- Conference table -->
+  <ellipse cx="200" cy="220" rx="150" ry="40" fill="#8b4513" opacity="0.8"/>
+  
+  <!-- Business people (simplified) -->
+  <!-- Person 1 -->
+  <circle cx="150" cy="180" r="15" fill="#ffdbac"/>
+  <rect x="140" y="195" width="20" height="30" rx="5" fill="#2c3e50"/>
+  
+  <!-- Person 2 -->
+  <circle cx="200" cy="175" r="15" fill="#ffdbac"/>
+  <rect x="190" y="190" width="20" height="30" rx="5" fill="#34495e"/>
+  
+  <!-- Person 3 -->
+  <circle cx="250" cy="180" r="15" fill="#ffdbac"/>
+  <rect x="240" y="195" width="20" height="30" rx="5" fill="#2c3e50"/>
+  
+  <!-- Presentation screen -->
+  <rect x="80" y="60" width="240" height="140" rx="10" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+  
+  <!-- Chart on screen -->
+  <rect x="100" y="80" width="200" height="100" rx="5" fill="url(#chartBgGradient)" opacity="0.3"/>
+  
+  <!-- Business growth chart -->
+  <path d="M120 160 L140 140 L160 150 L180 120 L200 110 L220 100 L240 90 L260 80 L280 70" 
+        stroke="#28a745" stroke-width="4" fill="none"/>
+  
+  <!-- Chart points -->
+  <circle cx="120" cy="160" r="3" fill="#28a745"/>
+  <circle cx="160" cy="150" r="3" fill="#28a745"/>
+  <circle cx="200" cy="110" r="3" fill="#28a745"/>
+  <circle cx="240" cy="90" r="3" fill="#28a745"/>
+  <circle cx="280" cy="70" r="3" fill="#28a745"/>
+  
+  <!-- Chart title -->
+  <text x="200" y="100" font-family="Arial" font-size="12" fill="#333" text-anchor="middle" font-weight="bold">Business Growth Strategy</text>
+  
+  <!-- Floating business elements -->
+  <!-- Lightbulb (ideas) -->
+  <circle cx="60" cy="100" r="12" fill="#ffd700" opacity="0.8"/>
+  <rect x="56" y="112" width="8" height="4" rx="2" fill="#333"/>
+  <rect x="57" y="116" width="6" height="2" rx="1" fill="#333"/>
+  
+  <!-- Target -->
+  <circle cx="340" cy="80" r="20" fill="#e74c3c" opacity="0.8"/>
+  <circle cx="340" cy="80" r="15" fill="#ffffff"/>
+  <circle cx="340" cy="80" r="10" fill="#e74c3c"/>
+  <circle cx="340" cy="80" r="5" fill="#ffffff"/>
+  <circle cx="340" cy="80" r="2" fill="#e74c3c"/>
+  
+  <!-- Money/ROI -->
+  <rect x="320" y="180" width="30" height="20" rx="5" fill="#2ecc71" opacity="0.8"/>
+  <text x="335" y="193" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle" font-weight="bold">$</text>
+  
+  <!-- Strategy document -->
+  <rect x="40" y="180" width="50" height="60" rx="5" fill="#ffffff" opacity="0.9"/>
+  <rect x="45" y="190" width="40" height="3" rx="1" fill="#333"/>
+  <rect x="45" y="200" width="35" height="3" rx="1" fill="#666"/>
+  <rect x="45" y="210" width="40" height="3" rx="1" fill="#333"/>
+  <rect x="45" y="220" width="30" height="3" rx="1" fill="#666"/>
+  <text x="65" y="185" font-family="Arial" font-size="8" fill="#333" text-anchor="middle" font-weight="bold">STRATEGY</text>
+  
+  <!-- Handshake -->
+  <ellipse cx="100" cy="50" rx="25" ry="8" fill="#ffdbac" opacity="0.7"/>
+  <ellipse cx="130" cy="50" rx="25" ry="8" fill="#ffdbac" opacity="0.7"/>
+  
+  <!-- Success metrics -->
+  <rect x="320" y="120" width="60" height="40" rx="5" fill="#3498db" opacity="0.8"/>
+  <text x="350" y="135" font-family="Arial" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="bold">SUCCESS</text>
+  <text x="350" y="150" font-family="Arial" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="bold">METRICS</text>
+  
+  <!-- Arrow pointing up (growth) -->
+  <polygon points="50,150 60,130 70,150" fill="#28a745" opacity="0.8"/>
+  <rect x="57" y="150" width="6" height="20" fill="#28a745" opacity="0.8"/>
+</svg>

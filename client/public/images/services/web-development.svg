@@ -1,0 +1,52 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="webGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9a9e"/>
+      <stop offset="100%" stop-color="#fecfef"/>
+    </linearGradient>
+    <linearGradient id="browserGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a8edea"/>
+      <stop offset="100%" stop-color="#fed6e3"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#webGradient)"/>
+  
+  <!-- Browser window -->
+  <rect x="50" y="50" width="300" height="200" rx="10" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+  
+  <!-- Browser header -->
+  <rect x="50" y="50" width="300" height="35" rx="10" fill="#f5f5f5"/>
+  <circle cx="70" cy="67" r="5" fill="#ff5f56"/>
+  <circle cx="85" cy="67" r="5" fill="#ffbd2e"/>
+  <circle cx="100" cy="67" r="5" fill="#27ca3f"/>
+  
+  <!-- URL bar -->
+  <rect x="120" y="60" width="180" height="15" rx="7" fill="#ffffff" stroke="#e0e0e0"/>
+  <text x="125" y="71" font-family="Arial" font-size="8" fill="#888">www.example.com</text>
+  
+  <!-- Website content -->
+  <rect x="70" y="100" width="260" height="20" rx="5" fill="url(#browserGradient)"/>
+  <rect x="70" y="130" width="180" height="8" rx="4" fill="#e0e0e0"/>
+  <rect x="70" y="145" width="200" height="8" rx="4" fill="#e0e0e0"/>
+  <rect x="70" y="160" width="150" height="8" rx="4" fill="#e0e0e0"/>
+  
+  <!-- Sidebar -->
+  <rect x="270" y="130" width="60" height="100" rx="5" fill="#f8f9fa" stroke="#e0e0e0"/>
+  <rect x="280" y="140" width="40" height="6" rx="3" fill="#6c757d"/>
+  <rect x="280" y="155" width="30" height="4" rx="2" fill="#adb5bd"/>
+  <rect x="280" y="165" width="35" height="4" rx="2" fill="#adb5bd"/>
+  
+  <!-- Floating code elements -->
+  <text x="30" y="40" font-family="monospace" font-size="16" fill="#007bff" opacity="0.7">HTML</text>
+  <text x="320" y="40" font-family="monospace" font-size="16" fill="#28a745" opacity="0.7">CSS</text>
+  <text x="30" y="270" font-family="monospace" font-size="16" fill="#ffc107" opacity="0.7">JS</text>
+  
+  <!-- Responsive icons -->
+  <rect x="350" y="180" width="20" height="30" rx="3" fill="#6f42c1" opacity="0.7"/>
+  <rect x="355" y="185" width="10" height="20" rx="2" fill="#ffffff"/>
+  
+  <rect x="350" y="220" width="30" height="20" rx="3" fill="#17a2b8" opacity="0.7"/>
+  <rect x="355" y="225" width="20" height="10" rx="2" fill="#ffffff"/>
+</svg>

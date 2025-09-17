@@ -1,0 +1,100 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea"/>
+      <stop offset="100%" stop-color="#764ba2"/>
+    </linearGradient>
+    <linearGradient id="serverGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4facfe"/>
+      <stop offset="100%" stop-color="#00f2fe"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#cloudGradient)"/>
+  
+  <!-- Main cloud -->
+  <ellipse cx="200" cy="100" rx="80" ry="35" fill="#ffffff" opacity="0.9"/>
+  <circle cx="140" cy="100" r="25" fill="#ffffff" opacity="0.9"/>
+  <circle cx="180" cy="85" r="30" fill="#ffffff" opacity="0.9"/>
+  <circle cx="220" cy="85" r="28" fill="#ffffff" opacity="0.9"/>
+  <circle cx="260" cy="100" r="25" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Cloud icon inside -->
+  <path d="M180 90 Q170 80 160 90 Q150 85 150 95 Q140 95 140 105 Q140 115 150 115 L210 115 Q220 115 220 105 Q220 95 210 95 Q210 85 200 90 Q190 80 180 90" 
+        fill="#4285f4"/>
+  
+  <!-- Servers below cloud -->
+  <rect x="80" y="180" width="60" height="80" rx="5" fill="url(#serverGradient)"/>
+  <rect x="90" y="190" width="40" height="8" rx="4" fill="#ffffff" opacity="0.8"/>
+  <rect x="90" y="205" width="40" height="6" rx="3" fill="#ffffff" opacity="0.6"/>
+  <rect x="90" y="218" width="40" height="6" rx="3" fill="#ffffff" opacity="0.6"/>
+  <rect x="90" y="231" width="40" height="6" rx="3" fill="#ffffff" opacity="0.6"/>
+  <circle cx="95" cy="245" r="3" fill="#28a745"/>
+  <circle cx="105" cy="245" r="3" fill="#28a745"/>
+  <circle cx="115" cy="245" r="3" fill="#ffc107"/>
+  <circle cx="125" cy="245" r="3" fill="#dc3545"/>
+  
+  <rect x="160" y="180" width="60" height="80" rx="5" fill="url(#serverGradient)"/>
+  <rect x="170" y="190" width="40" height="8" rx="4" fill="#ffffff" opacity="0.8"/>
+  <rect x="170" y="205" width="40" height="6" rx="3" fill="#ffffff" opacity="0.6"/>
+  <rect x="170" y="218" width="40" height="6" rx="3" fill="#ffffff" opacity="0.6"/>
+  <rect x="170" y="231" width="40" height="6" rx="3" fill="#ffffff" opacity="0.6"/>
+  <circle cx="175" cy="245" r="3" fill="#28a745"/>
+  <circle cx="185" cy="245" r="3" fill="#28a745"/>
+  <circle cx="195" cy="245" r="3" fill="#28a745"/>
+  <circle cx="205" cy="245" r="3" fill="#28a745"/>
+  
+  <rect x="240" y="180" width="60" height="80" rx="5" fill="url(#serverGradient)"/>
+  <rect x="250" y="190" width="40" height="8" rx="4" fill="#ffffff" opacity="0.8"/>
+  <rect x="250" y="205" width="40" height="6" rx="3" fill="#ffffff" opacity="0.6"/>
+  <rect x="250" y="218" width="40" height="6" rx="3" fill="#ffffff" opacity="0.6"/>
+  <rect x="250" y="231" width="40" height="6" rx="3" fill="#ffffff" opacity="0.6"/>
+  <circle cx="255" cy="245" r="3" fill="#28a745"/>
+  <circle cx="265" cy="245" r="3" fill="#ffc107"/>
+  <circle cx="275" cy="245" r="3" fill="#28a745"/>
+  <circle cx="285" cy="245" r="3" fill="#28a745"/>
+  
+  <!-- Connection lines -->
+  <path d="M110 180 Q150 150 180 135" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.7"/>
+  <path d="M190 180 Q200 150 200 135" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.7"/>
+  <path d="M270 180 Q230 150 220 135" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.7"/>
+  
+  <!-- Data transfer indicators -->
+  <circle cx="130" cy="160" r="4" fill="#ffd700" opacity="0.8">
+    <animate attributeName="cy" values="160;140;160" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="160" r="4" fill="#ffd700" opacity="0.8">
+    <animate attributeName="cy" values="160;140;160" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="250" cy="160" r="4" fill="#ffd700" opacity="0.8">
+    <animate attributeName="cy" values="160;140;160" dur="2s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Client devices -->
+  <!-- Laptop -->
+  <rect x="30" y="50" width="50" height="30" rx="3" fill="#2c3e50"/>
+  <rect x="35" y="55" width="40" height="20" rx="2" fill="#ecf0f1"/>
+  <rect x="50" y="80" width="10" height="5" rx="1" fill="#2c3e50"/>
+  
+  <!-- Mobile -->
+  <rect x="320" y="40" width="25" height="45" rx="5" fill="#2c3e50"/>
+  <rect x="323" y="45" width="19" height="30" rx="2" fill="#ecf0f1"/>
+  <circle cx="332" cy="80" r="2" fill="#2c3e50"/>
+  
+  <!-- Tablet -->
+  <rect x="330" y="150" width="40" height="30" rx="3" fill="#2c3e50"/>
+  <rect x="333" y="153" width="34" height="24" rx="2" fill="#ecf0f1"/>
+  
+  <!-- Connection lines from devices to cloud -->
+  <path d="M80 65 Q120 80 140 100" stroke="#4285f4" stroke-width="2" fill="none" opacity="0.6" stroke-dasharray="5,5"/>
+  <path d="M320 60 Q280 70 260 100" stroke="#4285f4" stroke-width="2" fill="none" opacity="0.6" stroke-dasharray="5,5"/>
+  <path d="M330 165 Q280 140 240 110" stroke="#4285f4" stroke-width="2" fill="none" opacity="0.6" stroke-dasharray="5,5"/>
+  
+  <!-- Cloud service labels -->
+  <rect x="350" y="200" width="45" height="15" rx="7" fill="#28a745" opacity="0.8"/>
+  <text x="372" y="210" font-family="Arial" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="bold">SECURE</text>
+  
+  <rect x="5" y="120" width="45" height="15" rx="7" fill="#e74c3c" opacity="0.8"/>
+  <text x="27" y="130" font-family="Arial" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="bold">24/7</text>
+</svg>

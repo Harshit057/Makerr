@@ -1,0 +1,54 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="seoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fa709a"/>
+      <stop offset="100%" stop-color="#fee140"/>
+    </linearGradient>
+    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4facfe"/>
+      <stop offset="100%" stop-color="#00f2fe"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#seoGradient)"/>
+  
+  <!-- Search bar -->
+  <rect x="50" y="60" width="300" height="40" rx="20" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+  <text x="70" y="83" font-family="Arial" font-size="14" fill="#666">Search Engine Optimization</text>
+  <circle cx="320" cy="80" r="15" fill="#4285f4"/>
+  <path d="M315 75 L320 80 L325 75" stroke="#ffffff" stroke-width="2" fill="none"/>
+  
+  <!-- Analytics chart -->
+  <rect x="80" y="130" width="240" height="120" rx="10" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Chart bars -->
+  <rect x="100" y="190" width="20" height="40" fill="url(#chartGradient)"/>
+  <rect x="130" y="170" width="20" height="60" fill="url(#chartGradient)"/>
+  <rect x="160" y="150" width="20" height="80" fill="url(#chartGradient)"/>
+  <rect x="190" y="140" width="20" height="90" fill="url(#chartGradient)"/>
+  <rect x="220" y="160" width="20" height="70" fill="url(#chartGradient)"/>
+  <rect x="250" y="145" width="20" height="85" fill="url(#chartGradient)"/>
+  <rect x="280" y="135" width="20" height="95" fill="url(#chartGradient)"/>
+  
+  <!-- Trend arrow -->
+  <path d="M110 160 L280 140" stroke="#28a745" stroke-width="3" fill="none"/>
+  <polygon points="275,135 285,140 275,145" fill="#28a745"/>
+  
+  <!-- Floating SEO elements -->
+  <circle cx="60" cy="160" r="20" fill="#ff6b6b" opacity="0.8"/>
+  <text x="50" y="168" font-family="Arial" font-size="12" fill="#ffffff" font-weight="bold">#1</text>
+  
+  <rect x="320" y="120" width="60" height="30" rx="15" fill="#4ecdc4" opacity="0.8"/>
+  <text x="335" y="140" font-family="Arial" font-size="10" fill="#ffffff" font-weight="bold">RANK UP</text>
+  
+  <!-- Keywords -->
+  <rect x="20" y="220" width="50" height="20" rx="10" fill="#ffd700" opacity="0.8"/>
+  <text x="25" y="233" font-family="Arial" font-size="8" fill="#333">Keywords</text>
+  
+  <rect x="330" y="200" width="50" height="20" rx="10" fill="#ff9ff3" opacity="0.8"/>
+  <text x="340" y="213" font-family="Arial" font-size="8" fill="#333">Traffic</text>
+  
+  <!-- Chart title -->
+  <text x="200" y="150" font-family="Arial" font-size="12" fill="#333" text-anchor="middle" font-weight="bold">SEO Performance</text>
+</svg>
