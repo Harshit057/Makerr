@@ -1,452 +1,436 @@
-# 🚀 Makerr - Modern Software & Business Solutions Platform
+# Makerr - Software & Business Solutions 🚀
 
-A cutting-edge MERN stack web application for Makerr, a comprehensive software and business solutions provider. Built with modern React 19, Node.js, and MongoDB, featuring advanced animations, 3D effects, and professional UI/UX design.
+A comprehensive full-stack web application providing professional software and business solutions including app development, web development, design services, marketing, and creator support services.
 
-## ✨ Key Features
+## 🌟 Overview
 
-- **Modern MERN Stack** - MongoDB, Express.js, React 19, Node.js
-- **Advanced Animations** - GSAP, Framer Motion, Three.js integration
-- **3D Visual Effects** - Vanta.js animated backgrounds
-- **Responsive Design** - Mobile-first approach with Material-UI
-- **Professional Services Showcase** - Interactive service gallery
-- **Smart Contact System** - Email notifications with Nodemailer
-- **Shopping Cart** - Dynamic quote request system
-- **Performance Optimized** - Code splitting and lazy loading
-- **SEO Ready** - Meta tags and structured data
-- **Deployment Ready** - Vercel configuration included
+Makerr is a modern, responsive web platform that showcases and provides various digital services. The application features a React.js frontend with 3D animations, a Node.js/Express backend with MongoDB integration, and is deployed on Vercel with a robust CI/CD pipeline.
 
-## 🛠️ Tech Stack & Libraries
+## 🏗️ Architecture
 
-### **Backend Technologies**
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   React Client  │◄──►│  Express API    │◄──►│    MongoDB      │
+│   (Port 3000)   │    │   (Port 5000)   │    │   Database      │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+        │                        │                        │
+        │                        │                        │
+        ▼                        ▼                        ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Vercel CDN    │    │  Vercel Lambda  │    │  MongoDB Atlas  │
+│   (Frontend)    │    │   (Backend)     │    │   (Cloud DB)    │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React 19.1.0** - Modern UI library with hooks and context
+- **React Router DOM 7.6.3** - Client-side routing and navigation
+- **Three.js 0.179.1** - 3D graphics and animations
+- **@react-three/fiber** - React renderer for Three.js
+- **@react-three/drei** - Useful helpers for Three.js
+- **Framer Motion 12.23.0** - Advanced animations and transitions
+- **GSAP 3.13.0** - High-performance animations
+- **Vanta.js 0.5.24** - Animated 3D backgrounds
+- **Material-UI 7.2.0** - React component library
+- **Axios 1.10.0** - HTTP client for API requests
+- **Lenis 1.3.11** - Smooth scrolling library
+
+### Backend
 - **Node.js** - JavaScript runtime environment
 - **Express.js 5.1.0** - Web application framework
-- **MongoDB** - NoSQL database
-- **Mongoose 8.16.1** - MongoDB object modeling
-- **Nodemailer 7.0.4** - Email sending capabilities
+- **MongoDB 8.16.1** - NoSQL database with Mongoose ODM
+- **Nodemailer 7.0.4** - Email sending service
 - **CORS 2.8.5** - Cross-origin resource sharing
-- **dotenv 17.0.1** - Environment variable management
+- **dotenv 17.0.1** - Environment configuration
 
-### **Frontend Technologies**
-- **React 19.1.0** - Latest React with concurrent features
-- **React DOM 19.1.0** - React rendering library
-- **React Router DOM 7.6.3** - Client-side routing
-
-### **UI/UX Libraries**
-- **Material-UI (MUI)**
-  - `@mui/material 7.2.0` - Core components
-  - `@mui/icons-material 7.2.0` - Icon library
-  - `@emotion/react 11.14.0` - CSS-in-JS styling
-  - `@emotion/styled 11.14.1` - Styled components
-
-### **Animation & Visual Effects**
-- **GSAP 3.13.0** - High-performance animations
-- **Framer Motion 12.23.0** - React animation library
-- **Three.js 0.179.1** - 3D graphics library
-- **Vanta.js 0.5.24** - Animated 3D backgrounds
-- **Lottie Player 3.6.0** - Lottie animation renderer
-- **Lenis 1.3.11** - Smooth scrolling library
-- **Studio Freight Lenis 1.0.42** - Enhanced scrolling
-
-### **Development Tools**
-- **React Scripts 5.0.1** - Build and development tools
-- **Axios 1.11.0** - HTTP client library
-- **Concurrently 9.2.0** - Run multiple commands
+### Development Tools
 - **Nodemon 3.1.10** - Development server auto-restart
+- **Concurrently 9.2.0** - Run multiple commands simultaneously
+- **React Scripts 5.0.1** - Create React App build tools
 
-### **Testing Libraries**
-- **Jest DOM 6.6.3** - DOM testing utilities
-- **React Testing Library 16.3.0** - React component testing
-- **User Event 13.5.0** - User interaction testing
-- **DOM Testing Library 10.4.0** - DOM node testing
+### Deployment & Hosting
+- **Vercel** - Serverless deployment platform
+- **MongoDB Atlas** - Cloud database hosting
+- **Vercel Functions** - Serverless backend API
 
-### **Performance & Monitoring**
-- **Web Vitals 2.1.4** - Core web vitals measurement
+## 📁 Project Structure
 
-## � Services Offered
+```
+Makerr/
+├── 📁 client/                    # React Frontend Application
+│   ├── 📁 public/               # Static assets and HTML template
+│   │   ├── index.html          # Main HTML template with SEO meta tags
+│   │   ├── favicon.ico         # Website favicon
+│   │   ├── manifest.json       # PWA manifest
+│   │   └── 📁 images/          # Static images and 3D models
+│   │       └── 📁 services/    # Service icons and 3D models (.glb files)
+│   ├── 📁 src/                 # Source code
+│   │   ├── App.js              # Main app component with routing
+│   │   ├── index.js            # React app entry point
+│   │   ├── 📁 components/      # Reusable UI components
+│   │   │   ├── Header.js       # Navigation header with cart
+│   │   │   ├── Footer.js       # Website footer
+│   │   │   ├── Cart.js         # Shopping cart for services
+│   │   │   ├── QuoteModal.js   # Quote request modal
+│   │   │   ├── LaptopModel3D.js # 3D laptop model component
+│   │   │   ├── OfficeDesk3D.js # 3D office desk component
+│   │   │   ├── ServiceCarousel3D.js # 3D service showcase
+│   │   │   ├── ModernHeroBackground.js # Animated background
+│   │   │   └── TechMarquee.js  # Scrolling tech stack display
+│   │   ├── 📁 pages/           # Page components
+│   │   │   ├── Home.js         # Landing page with hero section
+│   │   │   ├── Services.js     # Services catalog with filtering
+│   │   │   ├── About.js        # Company information
+│   │   │   ├── Contact.js      # Contact form and information
+│   │   │   ├── Careers.js      # Job opportunities
+│   │   │   ├── PrivacyPolicy.js # Privacy policy
+│   │   │   └── TermsOfService.js # Terms and conditions
+│   │   ├── 📁 context/         # React Context providers
+│   │   │   └── CartContext.js  # Shopping cart state management
+│   │   └── 📁 css files        # Component-specific stylesheets
+│   ├── 📁 build/               # Production build output
+│   └── package.json            # Frontend dependencies
+├── 📁 backend/                  # Node.js Backend API
+│   ├── server.js               # Express server entry point
+│   ├── 📁 models/              # MongoDB data models
+│   │   ├── Contact.js          # Contact form submissions schema
+│   │   └── Service.js          # Services catalog schema
+│   ├── 📁 routes/              # API route handlers
+│   │   ├── contact.js          # Contact form endpoints
+│   │   └── services.js         # Services CRUD endpoints
+│   └── package.json            # Backend dependencies
+├── vercel.json                 # Vercel deployment configuration
+└── README.md                   # Project documentation
+```
 
-- **App Development** - iOS and Android mobile applications
-- **Web Development** - Modern, responsive websites and web applications
-- **SEO & Marketing** - Digital marketing and search engine optimization
-- **Poster Making** - Professional graphic design services
-- **Social Media Management** - Complete social media strategy and management
-- **Cyber Security** - Security audits, monitoring, and consulting
-- **System Solutions** - Custom software and system integrations
+## 🎯 Services Offered
 
-## 🎨 Design & Animation Features
+### 🎨 Design Services
+1. **Logo Design** - Custom brand identity and logo creation
+2. **Poster Design** - Marketing materials and promotional graphics
+3. **Thumbnail Design** - YouTube and social media thumbnails
+4. **Video Editing** - Professional video production and editing
+5. **UI/UX Design** - User interface and experience design
+6. **Brand Identity** - Complete branding packages
 
-### **Visual Effects**
-- **Vanta.js Cells Animation** - Dynamic 3D cellular background
-- **GSAP Animations** - Smooth scroll-triggered animations
-- **Framer Motion** - Page transitions and component animations
-- **Three.js Integration** - 3D graphics and interactive elements
+### 💻 Development Services
+7. **Web Development** - Modern websites and web applications
+8. **Mobile App Development** - iOS and Android applications
+9. **AI Assistants** - Custom chatbots and AI solutions
+10. **Software Development** - Custom business software
+11. **E-commerce Solutions** - Online stores and payment systems
+12. **API Development** - RESTful APIs and integrations
 
-### **UI Components**
-- **Modern Hero Section** - Animated background with call-to-action
-- **Device Mockups** - Interactive phone/tablet previews
-- **Image Gallery** - Responsive grid with lightbox effect
-- **Tech Marquee** - Scrolling technology showcase
-- **Quote Modal** - Interactive service selection
-- **Shopping Cart** - Dynamic cart with quote requests
+### 🎬 Creator Services
+13. **Script Writing** - Content scripts for videos and podcasts
+14. **Sponsor Finding** - Brand partnership opportunities
+15. **Content Strategy** - Strategic content planning
+16. **Thumbnail & Graphics** - Creator-focused design services
+17. **Video Editing** - Specialized editing for creators
+18. **Influencer Marketing** - Marketing campaign management
+19. **Channel/Profile Optimization** - Social media optimization
+20. **Audience Analytics** - Performance and audience insights
 
-### **Responsive Design**
-- **Mobile-First** - Optimized for all screen sizes
-- **Material Design** - Google's design language implementation
-- **Custom CSS** - Tailored animations and transitions
-- **Flexbox/Grid** - Modern layout techniques
+### 📈 Marketing Services
+21. **Digital Marketing Strategy** - Comprehensive marketing plans
+22. **Social Media Marketing** - Social platform management
+23. **Search Engine Optimization** - SEO and search visibility
+24. **Content Marketing** - Strategic content creation
+25. **Email Marketing** - Email campaign management
+26. **Pay-Per-Click Advertising** - PPC campaign management
 
-## � Prerequisites
+## 🚀 Features
 
-Before running this project, make sure you have:
+### Frontend Features
+- 🎨 **Modern UI/UX** - Clean, professional design with animations
+- 🌐 **Responsive Design** - Mobile-first, cross-device compatibility
+- 🎭 **3D Animations** - Interactive 3D models and backgrounds
+- 🛒 **Shopping Cart** - Service selection and quote requests
+- 🔍 **Service Filtering** - Category-based service browsing
+- 📱 **Progressive Web App** - PWA capabilities with manifest
+- ⚡ **Performance Optimized** - Code splitting and lazy loading
+- 🎯 **SEO Optimized** - Meta tags, structured data, and sitemap
 
-- **Node.js** (v16 or higher) - Required for React 19
-- **MongoDB** (local installation or MongoDB Atlas)
-- **npm** or **yarn** package manager
-- **Git** for version control
+### Backend Features
+- 🔐 **RESTful API** - Well-structured API endpoints
+- 💾 **Database Integration** - MongoDB with Mongoose ODM
+- 📧 **Email Integration** - Contact form email notifications
+- 🌐 **CORS Enabled** - Cross-origin resource sharing
+- 🔄 **Graceful Fallbacks** - Works without database connection
+- 📊 **Request Logging** - Comprehensive API logging
+- 🛡️ **Input Validation** - Server-side data validation
 
-## �🔧 Installation & Setup
+### DevOps Features
+- 🚀 **Vercel Deployment** - Serverless hosting with CDN
+- 🔄 **CI/CD Pipeline** - Automated build and deployment
+- 🌍 **Environment Management** - Separate dev/prod environments
+- 📈 **Performance Monitoring** - Built-in analytics and monitoring
 
-### 1. Clone the repository
+## 📱 Pages & Functionality
+
+### Public Pages
+- **Home** - Hero section with 3D animations and service overview
+- **Services** - Comprehensive service catalog with filtering and cart
+- **About** - Company information and team details
+- **Contact** - Contact form with service selection and quote requests
+- **Careers** - Job opportunities and application process
+- **Privacy Policy** - Data protection and privacy information
+- **Terms of Service** - Legal terms and conditions
+
+### Key Components
+- **Header** - Navigation with cart indicator and mobile menu
+- **Footer** - Links, contact information, and social media
+- **3D Models** - Interactive laptop and office desk models
+- **Service Cards** - Detailed service information with add-to-cart
+- **Quote Modal** - Multi-step quote request process
+- **Cart System** - Service selection and batch quote requests
+
+## 🔧 Installation & Setup
+
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn package manager
+- MongoDB (local or MongoDB Atlas)
+- Git
+
+### Local Development Setup
+
+1. **Clone the repository**
 ```bash
 git clone https://github.com/Harshit057/Makerr.git
 cd Makerr
 ```
 
-### 2. Install server dependencies
+2. **Install backend dependencies**
 ```bash
 npm install
 ```
 
-### 3. Install client dependencies
+3. **Install frontend dependencies**
 ```bash
 cd client
 npm install
 cd ..
 ```
 
-### 4. Environment Configuration
+4. **Environment Configuration**
 Create a `.env` file in the root directory:
-
 ```env
-# Server Configuration
+MONGODB_URI=mongodb://localhost:27017/makerr
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-password
 NODE_ENV=development
 PORT=5000
-
-# Database
-MONGODB_URI=mongodb://localhost:27017/makerr
-# Or use MongoDB Atlas:
-# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/makerr
-
-# Email Configuration (for contact form)
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASS=your_app_password
-
-# Frontend URL
-CLIENT_URL=http://localhost:3000
 ```
 
-### 5. Database Setup
-- **Local MongoDB:** Ensure MongoDB is running on your system
-- **MongoDB Atlas:** Create a cluster and update MONGODB_URI
-- The application will automatically create collections
-
-## 🚀 Running the Application
-
-### Development Mode (Recommended)
+5. **Start development servers**
 ```bash
-# Run both server and client concurrently
+# Start both frontend and backend
 npm run dev-full
+
+# Or start them separately
+npm run server    # Backend on port 5000
+npm run client    # Frontend on port 3000
 ```
-- Server: http://localhost:5000
-- Client: http://localhost:3000
 
-### Individual Services
-```bash
-# Server only (with nodemon)
-npm run dev
-
-# Client only (React dev server)
-npm run client
-
-# Legacy client (if needed)
-npm run client-old
-```
+6. **Access the application**
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:5000/api
 
 ### Production Build
-```bash
-# Build client
-npm run build
 
-# Start production server
+1. **Build the frontend**
+```bash
+npm run build
+```
+
+2. **Start production server**
+```bash
 npm start
 ```
 
-## 📁 Project Architecture
+## 🌐 Deployment
 
-```
-Makerr/
-├── client/                    # React 19 Frontend
-│   ├── public/
-│   │   ├── index.html
-│   │   ├── manifest.json
-│   │   └── images/
-│   │       └── gallery/       # Service images
-│   ├── src/
-│   │   ├── components/        # Reusable UI components
-│   │   │   ├── Header.js      # Navigation with animations
-│   │   │   ├── Footer.js      # Footer with links
-│   │   │   ├── Cart.js        # Shopping cart functionality
-│   │   │   ├── DeviceMockup.js # 3D device previews
-│   │   │   ├── ImageGallery.js # Responsive gallery
-│   │   │   ├── QuoteModal.js  # Service quote requests
-│   │   │   ├── TechMarquee.js # Technology showcase
-│   │   │   ├── VantaCells.js  # 3D background effects
-│   │   │   └── AnimationDemo.js # GSAP animations
-│   │   ├── pages/             # Route components
-│   │   │   ├── Home.js        # Landing page
-│   │   │   ├── Services.js    # Service showcase
-│   │   │   ├── About.js       # Company information
-│   │   │   ├── Contact.js     # Contact form
-│   │   │   ├── Careers.js     # Job opportunities
-│   │   │   ├── PrivacyPolicy.js
-│   │   │   └── TermsOfService.js
-│   │   ├── context/
-│   │   │   └── CartContext.js # Global cart state
-│   │   ├── styles/            # CSS modules
-│   │   ├── App.js             # Main app component
-│   │   └── index.js           # React 19 entry point
-│   └── package.json           # Client dependencies
-├── models/                    # MongoDB Schemas
-│   ├── Contact.js             # Contact form model
-│   └── Service.js             # Service data model
-├── routes/                    # Express API Routes
-│   ├── contact.js             # Contact form handling
-│   └── services.js            # Service CRUD operations
-├── server.js                  # Express server setup
-├── package.json               # Server dependencies
-├── vercel.json                # Vercel deployment config
-└── .env                       # Environment variables
+### Vercel Deployment
+
+The application is configured for deployment on Vercel with the following setup:
+
+1. **Automatic Deployment**
+   - Connected to GitHub repository
+   - Automatic deployments on push to main branch
+   - Preview deployments for pull requests
+
+2. **Environment Variables**
+   Set these in your Vercel dashboard:
+   ```
+   MONGODB_URI=your-mongodb-atlas-connection-string
+   EMAIL_USER=your-email@gmail.com
+   EMAIL_PASS=your-app-password
+   NODE_ENV=production
+   ```
+
+3. **Custom Domain**
+   - Configure custom domain in Vercel dashboard
+   - SSL certificate automatically provided
+
+### Manual Deployment Steps
+
+1. **Install Vercel CLI**
+```bash
+npm i -g vercel
 ```
 
-## � API Endpoints
+2. **Deploy to Vercel**
+```bash
+vercel --prod
+```
 
-### Contact Routes
+3. **Set Environment Variables**
+```bash
+vercel env add
+```
+
+## 📊 API Endpoints
+
+### Contact Endpoints
 - `POST /api/contact` - Submit contact form
-  - Automatic email notifications
-  - Input validation and sanitization
-  - Support for quote requests
+  - Body: `{ name, email, phone, company, service, message, isQuoteRequest, requestedServices }`
+  - Response: Contact confirmation and email notification
 
-### Services Routes  
+### Services Endpoints
 - `GET /api/services` - Retrieve all services
-- `GET /api/services/:id` - Get specific service details
-- `GET /api/services?category=<category>` - Filter by service category
-- `POST /api/services` - Add new service (admin)
+  - Query: `?category=development|design|marketing|creator`
+  - Response: Filtered services array with features and details
 
-## 🔒 Security & Performance
+## 🔒 Security Features
 
-### Security Features
-- **CORS Protection** - Configured for specific origins
-- **Input Validation** - Mongoose schema validation
+- **CORS Configuration** - Restricted cross-origin requests
+- **Input Validation** - Server-side data validation
 - **Environment Variables** - Sensitive data protection
-- **MongoDB Injection Protection** - Built-in Mongoose protection
-- **Email Sanitization** - Nodemailer security
+- **Rate Limiting** - API abuse prevention (via Vercel)
+- **HTTPS Enforcement** - SSL/TLS encryption
+- **Sanitized Database Queries** - MongoDB injection prevention
 
-### Performance Optimizations
-- **React 19 Concurrent Features** - Improved rendering
-- **Code Splitting** - Lazy loading for better performance
-- **Image Optimization** - Compressed gallery images
-- **Smooth Scrolling** - Lenis for enhanced UX
-- **Animation Performance** - GSAP hardware acceleration
-- **Bundle Optimization** - Webpack optimizations via React Scripts
+## 🎨 Design System
 
-## 📧 Email System
+### Color Palette
+- Primary: Modern blues and teals for trust and technology
+- Secondary: Vibrant accents for calls-to-action
+- Neutral: Grays for text and backgrounds
+- Success: Green for positive actions
+- Warning: Orange for attention items
 
-### Features
-- **Professional HTML Templates** - Styled email notifications
-- **Automatic Quote Detection** - Smart categorization
-- **Service-Specific Handling** - Tailored responses
-- **Customer Information** - Complete form data capture
+### Typography
+- **Primary Font**: Inter - Clean, modern sans-serif
+- **Secondary Font**: Poppins - Friendly, approachable headers
+- **Icons**: Material Icons, Font Awesome, Bootstrap Icons
 
-### Gmail Setup (Recommended)
-1. Enable 2-factor authentication
-2. Generate App Password (not regular password)
-3. Update environment variables:
-```env
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-16-digit-app-password
-```
+### 3D Elements
+- **Laptop Model**: Interactive 3D laptop for tech services
+- **Office Desk**: Professional workspace visualization
+- **Animated Backgrounds**: Vanta.js particle systems
 
-## 🚀 Deployment
+## 🧪 Testing
 
-### Vercel Deployment (Recommended)
-1. **Install Vercel CLI:**
-   ```bash
-   npm i -g vercel
-   ```
-
-2. **Deploy:**
-   ```bash
-   vercel
-   ```
-
-3. **Environment Variables on Vercel:**
-   - `MONGODB_URI` - Your MongoDB connection string
-   - `EMAIL_USER` - Your email address
-   - `EMAIL_PASS` - Your email app password
-   - `NODE_ENV` - Set to `production`
-
-### Alternative Deployments
-- **Heroku** - Full-stack deployment
-- **Railway** - Backend deployment
-- **Netlify** - Frontend-only deployment
-- **DigitalOcean** - VPS deployment
-
-## 🔄 Available Scripts
-
-### Server Scripts
+### Frontend Testing
 ```bash
-npm start          # Production server
-npm run dev        # Development with nodemon
-npm run server     # Development server alias
+cd client
+npm test
 ```
 
-### Client Scripts
+### Backend Testing
 ```bash
-npm run client     # React development server
-npm run build      # Production build
-npm run client-old # Legacy client support
+npm test
 ```
 
-### Full-Stack Scripts
-```bash
-npm run dev-full   # Run server + client concurrently
-npm run client-install  # Install client dependencies
-```
+### E2E Testing
+- Manual testing workflow
+- Cross-browser compatibility testing
+- Mobile responsiveness testing
 
-## 📱 Browser Support
+## 📈 Performance Optimization
 
-- **Chrome** 88+ ✅
-- **Firefox** 85+ ✅  
-- **Safari** 14+ ✅
-- **Edge** 88+ ✅
-- **Mobile Safari** 14+ ✅
-- **Chrome Android** 88+ ✅
+### Frontend Optimizations
+- **Code Splitting** - React lazy loading for routes
+- **Image Optimization** - WebP format and responsive images
+- **Bundle Analysis** - Webpack bundle analyzer integration
+- **Caching Strategy** - Service worker implementation
+- **3D Model Optimization** - Compressed GLB files
 
-## 🎯 Performance Metrics
+### Backend Optimizations
+- **Database Indexing** - MongoDB performance indexes
+- **Response Compression** - Gzip compression middleware
+- **Caching Headers** - Browser caching for static assets
+- **Connection Pooling** - MongoDB connection optimization
 
-- **Lighthouse Score** 90+ across all categories
-- **First Contentful Paint** < 1.5s
-- **Largest Contentful Paint** < 2.5s
-- **Cumulative Layout Shift** < 0.1
-- **First Input Delay** < 100ms
-
-## 🤝 Contributing
-
-We welcome contributions! Please follow these steps:
-
-1. **Fork the repository**
-2. **Create a feature branch:**
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. **Commit your changes:**
-   ```bash
-   git commit -m 'Add amazing feature'
-   ```
-4. **Push to the branch:**
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-5. **Open a Pull Request**
-
-### Development Guidelines
-- Follow React 19 best practices
-- Use Material-UI components when possible
-- Maintain consistent code formatting
-- Add comments for complex animations
-- Test on multiple devices/browsers
-
-## � Troubleshooting
+## 🐛 Troubleshooting
 
 ### Common Issues
 
-**React 19 Compatibility:**
-- Ensure Node.js v16+ is installed
-- Clear node_modules and reinstall if needed
+1. **MongoDB Connection Failed**
+   ```bash
+   # Check MongoDB is running
+   mongod --version
+   
+   # Verify connection string
+   echo $MONGODB_URI
+   ```
 
-**Animation Performance:**
-- Reduce motion for accessibility
-- Check browser hardware acceleration
+2. **Build Errors**
+   ```bash
+   # Clear node modules and reinstall
+   rm -rf node_modules package-lock.json
+   npm install
+   ```
 
-**Email Not Sending:**
-- Verify Gmail app password setup
-- Check firewall/antivirus settings
-- Ensure environment variables are set
+3. **3D Models Not Loading**
+   - Check GLB file paths in public/images/services/
+   - Verify Three.js dependencies are installed
+   - Check browser WebGL support
 
-**MongoDB Connection:**
-- Verify connection string format
-- Check network connectivity
-- Ensure MongoDB service is running
+4. **Email Sending Issues**
+   - Verify Gmail app password setup
+   - Check EMAIL_USER and EMAIL_PASS environment variables
+   - Enable "Less secure app access" if using regular password
 
-## � Future Roadmap
+## 🤝 Contributing
 
-### Planned Features
-- [ ] **Blog System** - Content management with rich editor
-- [ ] **Client Portal** - Project tracking dashboard  
-- [ ] **Payment Integration** - Stripe/PayPal gateway
-- [ ] **Real-time Chat** - Socket.io implementation
-- [ ] **PWA Support** - Service workers and offline mode
-- [ ] **Multi-language** - i18n internationalization
-- [ ] **Analytics Dashboard** - Custom metrics tracking
-- [ ] **A/B Testing** - Feature flag system
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### Technical Improvements
-- [ ] **Unit Testing** - Jest and React Testing Library
-- [ ] **E2E Testing** - Cypress integration
-- [ ] **Docker Support** - Containerization
-- [ ] **CI/CD Pipeline** - GitHub Actions
-- [ ] **Performance Monitoring** - Real user metrics
-- [ ] **Error Tracking** - Sentry integration
+### Development Guidelines
+- Follow React best practices and hooks patterns
+- Use ESLint and Prettier for code formatting
+- Write meaningful commit messages
+- Update documentation for new features
+- Test thoroughly before submitting PRs
 
-## 📊 Analytics & Monitoring
+## 📄 License
 
-### Implemented
-- **Web Vitals** - Core performance metrics
-- **React DevTools** - Component debugging
-- **MongoDB Compass** - Database monitoring
-
-### Recommended
-- **Google Analytics 4** - User behavior tracking
-- **Sentry** - Error monitoring and performance
-- **LogRocket** - Session replay and debugging
-
-## 📝 License
-
-This project is licensed under the **ISC License** - see the LICENSE file for details.
+This project is licensed under the ISC License - see the package.json file for details.
 
 ## 📞 Contact & Support
 
-### Development Team
-- **Email:** info.makerr@gmail.com
-- **Phone:** +91 8957688223
-- **GitHub:** [Harshit057](https://github.com/Harshit057)
+- **Email**: info.makerr@gmail.com
+- **Phone**: +91 8957688223
+- **Website**: https://makerr.com
+- **GitHub**: https://github.com/Harshit057/Makerr
 
-### Business Inquiries
-- **Website:** [Makerr Official](https://makerr-harshit057.vercel.app)
-- **Services:** Custom software development, web applications, mobile apps
+## 🙏 Acknowledgments
 
-### Technical Support
-- **Issues:** [GitHub Issues](https://github.com/Harshit057/Makerr/issues)
-- **Documentation:** This README and inline code comments
-- **Community:** Feel free to fork and contribute!
+- **React Team** - For the amazing React framework
+- **Three.js Community** - For powerful 3D graphics capabilities
+- **Vercel Team** - For excellent hosting and deployment platform
+- **MongoDB** - For reliable database solutions
+- **Open Source Community** - For all the amazing packages used
 
 ---
 
-<div align="center">
+**Built with ❤️ by the Makerr Team**
 
-**🚀 Makerr - Transforming Businesses Through Innovative Software Solutions 🚀**
-
-*Built with ❤️ using React 19, Node.js, and modern web technologies*
-
-[Live Demo](https://makerr-harshit057.vercel.app) • [Documentation](https://github.com/Harshit057/Makerr) • [Contact Us](mailto:info.makerr@gmail.com)
-
-</div>
+*Transforming ideas into digital reality through innovative software and business solutions.*
