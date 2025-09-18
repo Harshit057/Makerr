@@ -57,7 +57,7 @@ const QuoteModal = ({ isOpen, onClose, selectedServices = [] }) => {
       console.log('Cleaned services:', cleanedServices);
 
       // Send to backend (using full URL to bypass proxy issues)
-      const backendUrl = process.env.NODE_ENV === 'production' ? '/api/contact' : 'http://localhost:5000/api/contact';
+      const backendUrl = process.env.NODE_ENV === 'production' ? 'https://makerr-pcrv.onrender.com/api/contact' : 'http://localhost:5000/api/contact';
       
       try {
         const response = await fetch(backendUrl, {

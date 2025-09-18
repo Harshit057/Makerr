@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // MongoDB connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/makerr';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://harshitsharmasncp1212:Dilhitohai24%23@cluster0.dxpctoc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 console.log('Connecting to MongoDB:', MONGODB_URI);
 
 // Try to connect to MongoDB, but don't crash if it fails

@@ -61,27 +61,27 @@ const TechMarquee = () => {
         
         <div className="marquee-container">
           <div className="marquee-track">
-              {/* First set of technologies */}
-              {technologies.map((tech, index) => (
-                <div key={`first-${index}`} className="tech-item" style={{'--tech-color': tech.color}}>
-                  <div className="tech-icon">
-                    <i className={tech.icon}></i>
-                  </div>
-                  <span className="tech-name">{tech.name}</span>
+            {/* First set of technologies */}
+            {technologies.map((tech, index) => (
+              <div key={`first-${index}`} className="tech-item" style={{'--tech-color': tech.color}}>
+                <div className="tech-icon">
+                  <i className={tech.icon}></i>
                 </div>
-              ))}
-              
-              {/* Duplicate set for seamless loop */}
-              {technologies.map((tech, index) => (
-                <div key={`second-${index}`} className="tech-item" style={{'--tech-color': tech.color}}>
-                  <div className="tech-icon">
-                    <i className={tech.icon}></i>
-                  </div>
-                  <span className="tech-name">{tech.name}</span>
+                <span className="tech-name">{tech.name}</span>
+              </div>
+            ))}
+            
+            {/* Duplicate set for seamless loop */}
+            {technologies.map((tech, index) => (
+              <div key={`second-${index}`} className="tech-item" style={{'--tech-color': tech.color}}>
+                <div className="tech-icon">
+                  <i className={tech.icon}></i>
                 </div>
-              ))}
-            </div>
+                <span className="tech-name">{tech.name}</span>
+              </div>
+            ))}
           </div>
+        </div>
         
         {/* Second row moving in opposite direction */}
         <div className="marquee-container reverse">
