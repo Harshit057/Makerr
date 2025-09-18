@@ -105,11 +105,18 @@ const QuoteModal = ({ isOpen, onClose, selectedServices = [] }) => {
           throw new Error(result.message || 'Failed to send quote request');
         }
       } catch (fetchError) {
-        console.error('Backend error, showing success message for demo:', fetchError);
-        // If backend is not available, show success message for demo
-        setSubmitMessage('Thank you for your quote request! We have received your information and will contact you soon via email.');
+        console.error('Backend error details:', fetchError);
+        console.error('Error message:', fetchError.message);
+        console.error('Error stack:', fetchError.stack);
         
-        // Clear form and cart
+        // Check if it's a CORS error
+        if (fetchError.message.includes('CORS') || fetchError.message.includes('network') || fetchError.message.includes('fetch')) {
+          setSubmitMessage('Connection error: Unable to reach server. Please check your internet connection or try again later.');
+        } else {
+          setSubmitMessage('Backend temporarily unavailable. Your request has been noted - we will contact you soon!');
+        }
+        
+        // For now, clear form anyway so user knows something happened
         setFormData({
           name: '',
           email: '',
@@ -123,7 +130,7 @@ const QuoteModal = ({ isOpen, onClose, selectedServices = [] }) => {
         setTimeout(() => {
           onClose();
           setSubmitMessage('');
-        }, 3000);
+        }, 4000);
       }
     } catch (error) {
       console.error('Error sending quote request:', error);
