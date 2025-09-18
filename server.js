@@ -13,7 +13,8 @@ app.use(cors({
     'http://127.0.0.1:3000', 
     'http://localhost:5173', 
     'http://127.0.0.1:5173',
-    'https://makerr-harshit057.vercel.app', // Replace with your actual Vercel domain
+    'https://makerr.tech', // Your actual custom domain
+    'https://makerr-harshit057.vercel.app', // Original Vercel domain
     'https://makerr-kappa.vercel.app', // Alternative domain pattern
     /\.vercel\.app$/, // Allow all Vercel preview deployments
     /^https:\/\/makerr.*\.vercel\.app$/ // Allow any makerr-* subdomain on vercel
