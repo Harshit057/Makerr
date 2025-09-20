@@ -41,7 +41,7 @@ const OfficeDesk3D = () => {
         {/* 3D Model */}
         <Suspense fallback={null}>
           <OfficeDeskModel 
-            scale={[0.030, 0.030, 0.030]}
+            scale={[0.046, 0.046, 0.046]}
             position={[0, -0.5, 0]}
             rotation={[0, Math.PI / 6, 0]}
           />

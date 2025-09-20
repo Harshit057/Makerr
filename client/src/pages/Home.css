@@ -6,11 +6,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
 }
 
 .hero-content-wrapper {
   padding: 8rem 0 6rem;
   width: 100%;
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
 }
 
 .hero::before {
@@ -60,6 +64,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .hero-3d-model {
@@ -68,6 +73,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .floating-card {
@@ -535,14 +542,133 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* iPad and Tablet Portrait (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
   .hero {
+    min-height: 85vh;
+  }
+  
+  .hero-content-wrapper {
     padding: 6rem 0 4rem;
+    min-height: calc(85vh - 120px);
+  }
+  
+  .hero-content {
+    gap: 2.5rem;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-graphic {
+    height: 350px;
+  }
+  
+  .hero-3d-model {
+    height: 350px;
+  }
+  
+  .floating-card {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .services-carousel-wrapper {
+    gap: 1rem;
+  }
+
+  .cta-banner {
+    width: 220px;
+    height: 350px;
+    padding: 1.5rem;
+  }
+
+  .cta-banner h3 {
+    font-size: 1.5rem;
+  }
+
+  .cta-banner p {
+    font-size: 0.9rem;
+  }
+}
+
+/* iPad Portrait and smaller tablets (481px - 768px) */
+@media (max-width: 768px) and (min-width: 481px) {
+  .hero {
+    min-height: 80vh;
+  }
+  
+  .hero-content-wrapper {
+    padding: 5rem 0 3rem;
+    min-height: calc(80vh - 100px);
   }
   
   .hero-content {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .hero-graphic {
+    height: 280px;
+    order: -1;
+  }
+  
+  .hero-3d-model {
+    height: 280px;
+  }
+  
+  .floating-card {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .floating-card i {
+    font-size: 1.2rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 75vh;
+  }
+  
+  .hero-content-wrapper {
+    padding: 4rem 0 3rem;
+    min-height: calc(75vh - 80px);
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
     text-align: center;
   }
   
@@ -552,14 +678,27 @@
   
   .hero-buttons {
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    max-width: 280px;
   }
   
   .hero-graphic {
-    height: 300px;
+    height: 250px;
+    order: -1;
   }
   
   .hero-3d-model {
-    height: 300px;
+    height: 250px;
+  }
+  
+  .floating-card {
+    display: none; /* Hide floating cards on small screens to reduce clutter */
   }
   
   .stats-grid {
@@ -637,6 +776,58 @@
   
   .hero-graphic {
     height: 250px;
+  }
+}
+
+/* Very small screens and older phones */
+@media (max-width: 420px) {
+  .hero {
+    min-height: 70vh;
+  }
+  
+  .hero-content-wrapper {
+    padding: 3rem 0 2rem;
+    min-height: calc(70vh - 60px);
+  }
+  
+  .hero-title {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-graphic {
+    height: 200px;
+  }
+  
+  .hero-3d-model {
+    height: 200px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .cta-banner {
+    width: 100%;
+    max-width: 280px;
+    height: 160px;
+    padding: 1rem;
+  }
+  
+  .cta-banner h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .cta-banner p {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
   }
 }
 

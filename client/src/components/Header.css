@@ -175,6 +175,19 @@
 }
 
 /* Mobile Menu */
+/* iPad and larger tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .nav-list {
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Mobile Menu */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;

@@ -1,12 +1,12 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useGLTF, OrbitControls } from '@react-three/drei';
 import './LaptopModel3D.css';
 
 // Component to load and display the laptop model
-function LaptopModel({ ...props }) {
+function LaptopModel({ scale, ...props }) {
   const { scene } = useGLTF('/images/services/laptop.glb');
-  return <primitive object={scene} {...props} />;
+  return <primitive object={scene} scale={scale} {...props} />;
 }
 
 // Loading fallback component
@@ -20,6 +20,29 @@ function LoadingSpinner() {
 }
 
 const LaptopModel3D = () => {
+  const [modelScale, setModelScale] = useState([3.6, 3.6, 3.6]);
+
+  useEffect(() => {
+    const updateScale = () => {
+      const width = window.innerWidth;
+      if (width <= 420) {
+        setModelScale([2.4, 2.4, 2.4]);
+      } else if (width <= 480) {
+        setModelScale([2.8, 2.8, 2.8]);
+      } else if (width <= 768) {
+        setModelScale([3.2, 3.2, 3.2]);
+      } else if (width <= 1024) {
+        setModelScale([3.4, 3.4, 3.4]);
+      } else {
+        setModelScale([3.6, 3.6, 3.6]);
+      }
+    };
+
+    updateScale();
+    window.addEventListener('resize', updateScale);
+    return () => window.removeEventListener('resize', updateScale);
+  }, []);
+
   return (
     <div className="laptop-model-container">
       <Canvas
@@ -41,7 +64,7 @@ const LaptopModel3D = () => {
         {/* 3D Model */}
         <Suspense fallback={null}>
           <LaptopModel 
-            scale={[3.6, 3.6, 3.6]}
+            scale={modelScale}
             position={[0, -1, 0]}
             rotation={[0, Math.PI / 4, 0]}
           />
@@ -62,7 +85,7 @@ const LaptopModel3D = () => {
       {/* Fallback content for loading */}
       <Suspense fallback={<LoadingSpinner />}>
         <div style={{ display: 'none' }}>
-          <LaptopModel />
+          <LaptopModel scale={modelScale} />
         </div>
       </Suspense>
     </div>

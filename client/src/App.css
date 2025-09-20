@@ -52,6 +52,26 @@ main {
   padding: 0 20px;
 }
 
+/* Responsive containers */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+}
+
 /* Buttons */
 .btn {
   padding: 14px 32px;
@@ -303,6 +323,37 @@ p {
 }
 
 /* Responsive */
+/* iPad and Tablet Portrait */
+@media (max-width: 1024px) and (min-width: 769px) {
+  h1 {
+    font-size: 2.75rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 70px 0;
+  }
+}
+
+/* iPad Portrait and smaller tablets */
+@media (max-width: 768px) and (min-width: 481px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+  
+  h2 {
+    font-size: 1.85rem;
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+}
+
+/* Mobile phones */
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
@@ -313,10 +364,20 @@ p {
   }
   
   .section {
-    padding: 60px 0;
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem;
   }
   
-  .container {
-    padding: 0 15px;
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .section {
+    padding: 40px 0;
   }
 }

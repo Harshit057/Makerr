@@ -67,6 +67,46 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .modern-hero-background::after {
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 75px,
+        rgba(255, 255, 255, 0.02) 75px,
+        rgba(255, 255, 255, 0.02) 76px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 75px,
+        rgba(255, 255, 255, 0.02) 75px,
+        rgba(255, 255, 255, 0.02) 76px
+      );
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .modern-hero-background::after {
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 60px,
+        rgba(255, 255, 255, 0.02) 60px,
+        rgba(255, 255, 255, 0.02) 61px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 60px,
+        rgba(255, 255, 255, 0.02) 60px,
+        rgba(255, 255, 255, 0.02) 61px
+      );
+  }
+}
+
 @media (max-width: 768px) {
   .modern-hero-background::after {
     background: 
@@ -83,6 +123,26 @@
         transparent 50px,
         rgba(255, 255, 255, 0.02) 50px,
         rgba(255, 255, 255, 0.02) 51px
+      );
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-hero-background::after {
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 40px,
+        rgba(255, 255, 255, 0.015) 40px,
+        rgba(255, 255, 255, 0.015) 41px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 40px,
+        rgba(255, 255, 255, 0.015) 40px,
+        rgba(255, 255, 255, 0.015) 41px
       );
   }
 }
